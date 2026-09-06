@@ -1,0 +1,134 @@
+name: Enrich Claude Antalya brochure
+
+on:
+  push:
+    paths:
+      - '.github/workflows/enrich-claude-antalya.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add Göynük image
+        run: |
+          set -euxo pipefail
+          curl -L --fail --retry 3 'https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/G%C3%B6yn%C3%BCk%20Kanyon%20-%20panoramio%20%2828%29.jpg&width=1280' -o claude/images/goynuk.jpg
+      - name: Enrich brochure and map
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          p=Path('claude/index.html')
+          s=p.read_text(encoding='utf-8')
+
+          replacements = {
+            "Ten nights on Turkey's Turquoise Coast: eternal flames, sunken cities, a cable car into the clouds and the warmest sea of the year.": "Ten nights on Turkey's Turquoise Coast: eternal flames, Lycian ruins, mountain days and a Mediterranean still warm from summer.",
+            "A Claude-guided Antalya coast itinerary: myth, mountains and the last warm sea of the season.": "A family walking holiday on the Antalya coast: myth, mountains, ruins and a sea still warm from summer.",
+            '<meta property="og:type" content="website">': '<meta property="og:type" content="website">\n<meta property="og:url" content="https://mhanmore.github.io/w/claude/">\n<meta name="theme-color" content="#1b1338">',
+            '<div class="chip"><b>~25°C</b> sea temperature</div>': '<div class="chip"><b>~25–26°C</b> October sea</div>',
+            'The sea has spent five months absorbing heat and is at its annual warmest right as the air finally cools enough to make a 15&nbsp;km mountain day pleasant rather than punishing.': 'The sea has spent five months absorbing heat and is still around 25–26°C in October, just as the air finally cools enough to make a 15&nbsp;km mountain day pleasant rather than punishing.',
+            '<div class="stat"><div class="num">25°C</div><div class="lbl">Average sea temperature — warmer than June, and the warmest it gets all year</div></div>': '<div class="stat"><div class="num">25–26°C</div><div class="lbl">Typical October sea temperature — comfortably swimmable after a walking day</div></div>',
+            '<div class="stat"><div class="num">~40%</div><div class="lbl">Rough drop in tourist numbers vs. August on this stretch of coast</div></div>': '<div class="stat"><div class="num">9</div><div class="lbl">Full days to move around the forecast rather than obey a rigid itinerary</div></div>',
+            'Before this was Antalya, it was <b style="color:#fff">Lycia</b> — a confederation of independent cities so effective at self-governance the framers of the American constitution studied it.': 'Before this was Antalya, this coast was part of <b style="color:#fff">Lycia</b> — a federation of city-states whose larger cities had three votes, middle-sized cities two and smaller cities one. Hamilton cited that system in Federalist No. 9.',
+            'Termessos sits so high and so defensible that Alexander the Great besieged it in 333 BC, decided the cost wasn\'t worth it, and marched on.': 'Termessos sits so high and so defensible that Alexander the Great failed to force the issue in 333 BC and moved on rather than spend the campaign on it.',
+            'Anything below can move if the forecast, the four-year-old, or plain inclination disagrees.': 'Anything below can move if the forecast, the four-year-old, or plain inclination disagrees. The two big hiking days are adult-led split-party days; the rest work as whole-family outings or easy swaps.',
+            '<span class="daytag">Day 2</span>': '<span class="daytag">Family · Day 2</span>',
+            '<span class="daytag">Day 3</span>': '<span class="daytag">Family · Day 3</span>',
+            '<span class="daytag">Day 4</span>': '<span class="daytag">Adults · Day 4</span>',
+            '<span class="daytag">Day 5</span>': '<span class="daytag">Recovery · Day 5</span>',
+            '<span class="daytag">Day 6</span>': '<span class="daytag">Family · Day 6</span>',
+            '<span class="daytag">Day 7</span>': '<span class="daytag">Adults · Day 7</span>',
+            '<span class="daytag">Day 8</span>': '<span class="daytag">Family · Day 8</span>',
+            '<span class="daytag">Day 9</span>': '<span class="daytag">Choice · Day 9</span>',
+            '<span class="daytag">Day 10</span>': '<span class="daytag">Slack · Day 10</span>',
+            'Arrive by 9am — this is a cruise-ship stop by early afternoon.': 'Arrive early for cooler walking, quieter ruins and first choice of harbour for the swim.',
+            'then a 20-minute uphill walk to watch the flames properly take hold as the light drops.': 'then a roughly 30–45 minute uphill walk to watch the flames properly take hold as the light drops.',
+            'Time the walk for last light — the flames barely show at noon, glow orange after 7pm.': 'Time the walk for last light — the flames are far more dramatic once the surrounding rock goes dark.',
+            'The Olympos Teleferik lifts you from near sea level to 2,365&nbsp;m in about 8 minutes — one of the steepest cable car rises in the world.': 'The Olympos Teleferik climbs from its 726&nbsp;m lower station to 2,365&nbsp;m in about 10 minutes — a 1,639&nbsp;m vertical jump into genuine high country.',
+            'Kemer\'s Friday market moves — check the current day before planning around it.': 'Keep this genuinely empty; use it wherever the weather or everyone\'s legs need the slack.',
+            '<img src="images/termessos.jpg" alt="Göynük Canyon">': '<img src="images/goynuk.jpg" alt="Göynük Canyon">',
+            'The lower canyon is a gentle, family-friendly walk beside cold snowmelt water — genuinely refreshing after the week\'s heat.': 'The lower canyon is a gentle, family-friendly walk beside startlingly clear water — genuinely refreshing after the week\'s heat.',
+            'Five reasons to leave the pool.': 'Reasons to leave the pool.'
+          }
+          for a,b in replacements.items():
+              s=s.replace(a,b)
+
+          research = '''
+<section id="rabbit-holes" class="rabbit-section">
+<div class="wrap">
+<div class="eyebrow">For the curious · open a few tabs</div>
+<h2 class="display">Rabbit holes before you go.</h2>
+<p class="copy">None of us knows this coast yet, so treat these as launch points rather than homework. The useful trick is that the mythology, archaeology and walking geography all overlap: the same names keep reappearing for very old reasons.</p>
+<div class="rabbitgrid">
+<article class="rabbit"><div class="spark">⚓</div><h3>Phaselis: three harbours, 2,700 years</h3><p>Founded by Rhodians around 690 BC, Phaselis became the principal commercial port on this stretch of coast. Alexander the Great was here in 333 BC; later the pirate Zeniketes controlled it before Rome intervened.</p><div class="linkrow"><a href="https://en.wikipedia.org/wiki/Phaselis">Wikipedia ↗</a><a href="https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.04.0006%3Aentry%3Dphaselis">Classical-site rabbit hole ↗</a><a href="https://antalyatouristinformation.com/things-to-do/history/phaselis/">Visitor guide ↗</a></div></article>
+<article class="rabbit"><div class="spark">🔥</div><h3>Yanartaş: geology became a monster</h3><p>Dozens of gas vents burn continuously above Çıralı. A ruined Temple of Hephaestus sits below them; Pliny described the mountain as burning day and night, and ancient sailors are said to have used the glow as a landmark.</p><div class="linkrow"><a href="https://en.wikipedia.org/wiki/Yanarta%C5%9F">Wikipedia ↗</a><a href="https://en.wikipedia.org/wiki/Mount_Chimaera">Chimaera debate ↗</a><a href="https://lycianway.co.uk/culture/olympos">Myth retold ↗</a></div></article>
+<article class="rabbit"><div class="spark">🏛</div><h3>Olympos: league heavyweight → pirate stronghold</h3><p>Olympos once had three votes in the Lycian League — the maximum. In the first century BC it became associated with Zeniketes and piracy; when Roman forces closed in, the pirate ruler reportedly burned himself and his family rather than surrender.</p><div class="linkrow"><a href="https://en.wikipedia.org/wiki/Olympus_(Lycia)">Wikipedia ↗</a><a href="https://lycianway.co.uk/olympos">Walking / visitor guide ↗</a><a href="https://lycianway.co.uk/culture/olympos">History & myth ↗</a></div></article>
+<article class="rabbit"><div class="spark">🗳</div><h3>The Lycian League: ancient weighted representation</h3><p>Twenty-three city-states shared a federal council, with one, two or three votes depending on size. The system impressed Montesquieu, and Hamilton explicitly invoked Lycia in Federalist No. 9 while arguing about the US Constitution.</p><div class="linkrow"><a href="https://guides.loc.gov/federalist-papers/text-1-10">Federalist No. 9 ↗</a><a href="https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Federal_Government">Federal history ↗</a><a href="https://www.lycianway.org/">Modern Lycian Way ↗</a></div></article>
+<article class="rabbit"><div class="spark">⛰</div><h3>Tahtalı: the other Olympus</h3><p>In antiquity this mountain was the Lycian Olympus. A temple of Hephaestus stood on it, the Lycian Way crosses it, and the modern cable car gains 1,639 vertical metres in about ten minutes.</p><div class="linkrow"><a href="https://en.wikipedia.org/wiki/Tahtal%C4%B1_Da%C4%9F%C4%B1">Wikipedia ↗</a><a href="https://www.olymposteleferik.com/en">Cable car ↗</a></div></article>
+<article class="rabbit"><div class="spark">🦅</div><h3>Termessos: the unexcavated mountain city</h3><p>Built around 1,000 m up in Pisidia, Termessos resisted Alexander's advance. Remarkably, it has never been formally excavated: the forested ruins remain in situ, while scholars have recorded more than a thousand inscriptions.</p><div class="linkrow"><a href="https://en.wikipedia.org/wiki/Termessos">Wikipedia ↗</a><a href="https://sweettravelbee.com/hiking-to-termessos-antalya-turkey/">Hiking blog ↗</a><a href="https://loveantalya.com/blogger-trip-to-termessos-ancient-city/">Local blogger trip ↗</a></div></article>
+<article class="rabbit"><div class="spark">🐢</div><h3>Çıralı: beach village in an archaeological corridor</h3><p>Çıralı is only a small agricultural village, but a 3.5 km protected beach connects it on foot to Olympos while Yanartaş burns in the hills behind. It is almost absurdly well positioned for a low-effort family day.</p><div class="linkrow"><a href="https://en.wikipedia.org/wiki/%C3%87%C4%B1ral%C4%B1">Wikipedia ↗</a><a href="https://cirali.online/en/journal/cirali-polnyy-putevoditel">Local guide ↗</a><a href="https://lycianway.co.uk/cirali">Lycian Way guide ↗</a></div></article>
+<article class="rabbit"><div class="spark">💧</div><h3>Göynük: easy gorge, hard mountains above</h3><p>The canyon sits directly on the Lycian Way. The lower gorge has pools and waterfalls; keep following the long-distance trail and the terrain quickly turns into the much rougher Beydağları mountain stage.</p><div class="linkrow"><a href="https://en.wikipedia.org/wiki/G%C3%B6yn%C3%BCk_Canyon">Wikipedia ↗</a><a href="https://www.lycianway.org/">Lycian Way ↗</a></div></article>
+</div>
+</div>
+</section>
+'''
+          marker='<section class="base" id="base">'
+          if 'id="rabbit-holes"' not in s:
+              s=s.replace(marker,research+'\n'+marker)
+          s=s.replace('<a href="#base">Base</a>', '<a href="#rabbit-holes">Rabbit holes</a>\n<a href="#base">Base</a>')
+
+          # Add lightweight deeper-reading links to the most relevant day cards.
+          s=s.replace('<div class="tip">Arrive early for cooler walking, quieter ruins and first choice of harbour for the swim.</div>', '<div class="tip">Arrive early for cooler walking, quieter ruins and first choice of harbour for the swim.</div><a class="more" href="https://en.wikipedia.org/wiki/Phaselis">Why three harbours mattered ↗</a>')
+          s=s.replace('<div class="tip">Time the walk for last light — the flames are far more dramatic once the surrounding rock goes dark.</div>', '<div class="tip">Time the walk for last light — the flames are far more dramatic once the surrounding rock goes dark.</div><a class="more" href="https://en.wikipedia.org/wiki/Yanarta%C5%9F">Flames, Hephaestus & the Chimera ↗</a>')
+          s=s.replace('<div class="tip">Pack a jumper — summit temperatures run 15–20°C below the beach.</div>', '<div class="tip">Pack a jumper — summit temperatures can be dramatically below the beach.</div><a class="more" href="https://en.wikipedia.org/wiki/Tahtal%C4%B1_Da%C4%9F%C4%B1">Why this is the Lycian Olympus ↗</a>')
+          s=s.replace('<div class="tip">Arrange a taxi back to the car at Adrasan, or run two cars — it\'s a one-way route.</div>', '<div class="tip">Arrange a taxi back to the car at Adrasan, or run two cars — it\'s a one-way route.</div><a class="more" href="https://en.wikipedia.org/wiki/Olympus_(Lycia)">Pirates, Lycian politics & Olympos ↗</a>')
+          s=s.replace('<div class="tip">Water shoes earn their luggage space here.</div>', '<div class="tip">Water shoes earn their luggage space here.</div><a class="more" href="https://en.wikipedia.org/wiki/G%C3%B6yn%C3%BCk_Canyon">Canyon background ↗</a>')
+          s=s.replace('<div class="tip">Termessos has almost no shade and no water on-site; Antalya has both in abundance.</div>', '<div class="tip">Termessos is the rougher, more committing choice; Antalya is the recovery-day option.</div><a class="more" href="https://en.wikipedia.org/wiki/Termessos">The city Alexander left alone ↗</a>')
+
+          p.write_text(s,encoding='utf-8')
+
+          css=Path('claude/styles.css')
+          c=css.read_text(encoding='utf-8')
+          extra='''\n/* Research rabbit holes */\n.rabbit-section{background:linear-gradient(180deg,#fbf7ee 0%,#f4e8db 100%)}\n.rabbitgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:36px}\n.rabbit{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:24px;padding:25px;position:relative;box-shadow:0 12px 30px -26px rgba(36,26,61,.5)}\n.rabbit .spark{font-size:1.45rem;margin-bottom:8px}\n.rabbit h3{font:500 1.55rem/1.08 Fraunces,serif;margin:.1em 0 .5em;color:var(--ink)}\n.rabbit p{font-size:.92rem;color:#5c5375;margin:0}\n.linkrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}\n.linkrow a,.day a.more{display:inline-block;text-decoration:none;color:var(--terracotta-dim);font-size:.78rem;font-weight:800;border-bottom:1px solid rgba(184,80,46,.28)}\n.linkrow a:hover,.day a.more:hover{color:var(--night);border-color:var(--night)}\n@media(max-width:720px){.rabbitgrid{grid-template-columns:1fr}.rabbit{padding:22px}}\n'''
+          if '/* Research rabbit holes */' not in c:
+              c += extra
+          css.write_text(c,encoding='utf-8')
+
+          mp=Path('claude/map.js')
+          m=mp.read_text(encoding='utf-8')
+          m=m.replace("img:'images/termessos.jpg',note:'Cold meltwater gorge;", "img:'images/goynuk.jpg',note:'Clear-water gorge;")
+          m=m.replace("note:'Cable car from sea level to 2,365 m in under ten minutes.'", "note:'Cable car from 726 m to 2,365 m in about ten minutes.'")
+          # Destination links reuse the richer mini-pages already built under trips/antalya-2026.
+          urls={
+            "name:'Phaselis'":"url:'../trips/antalya-2026/places/phaselis/'",
+            "name:'Tahtalı Dağı'":"url:'../trips/antalya-2026/places/tahtali/'",
+            "name:'Yanartaş'":"url:'../trips/antalya-2026/places/yanartas/'",
+            "name:'Olympos'":"url:'../trips/antalya-2026/places/olympos/'",
+            "name:'Adrasan'":"url:'../trips/antalya-2026/places/olympos/'",
+            "name:'Göynük Canyon'":"url:'../trips/antalya-2026/places/goynuk/'",
+            "name:'Termessos'":"url:'../trips/antalya-2026/places/termessos/'"
+          }
+          for key,val in urls.items():
+              m=m.replace('{'+key+',', '{'+key+','+val+',')
+          old="<small>${p.type} · ${p.note}</small></div></div>"
+          new="<small>${p.type} · ${p.note}</small>${p.url?`<a href=\\\"${p.url}\\\">Open mini-guide →</a>`:''}</div></div>"
+          m=m.replace(old,new)
+          mp.write_text(m,encoding='utf-8')
+
+          a=Path('claude/images/ATTRIBUTION.md')
+          at=a.read_text(encoding='utf-8') if a.exists() else '# Image attribution\n'
+          if 'goynuk.jpg' not in at:
+              at += '\n- **goynuk.jpg** — “Göynük Kanyon - panoramio (28).jpg”, Wikimedia Commons. Source/licence: https://commons.wikimedia.org/wiki/File:G%C3%B6yn%C3%BCk_Kanyon_-_panoramio_(28).jpg\n'
+          a.write_text(at,encoding='utf-8')
+          PY
+      - name: Commit enrichment
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add claude
+          git diff --cached --quiet || git commit -m 'Enrich Antalya brochure with history and research links'
+          git push
