@@ -23,10 +23,56 @@ jobs:
           curl -L --fail --retry 3 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Tahtali_Mountains.jpg/1280px-Tahtali_Mountains.jpg' -o trips/antalya-2026/images/tahtali.jpg
           curl -L --fail --retry 3 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Olympos_Antalya.jpg/1280px-Olympos_Antalya.jpg' -o trips/antalya-2026/images/olympos.jpg
           curl -L --fail --retry 3 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Termessos_-_Theater.jpg/1280px-Termessos_-_Theater.jpg' -o trips/antalya-2026/images/termessos.jpg
-      - name: Commit images
+      - name: Rewrite site to local image assets
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path('trips/antalya-2026')
+
+          def image_name(url: str) -> str:
+              u = url.lower()
+              if 'chimera' in u or 'yanarta' in u:
+                  return 'yanartas.jpg'
+              if 'tahtali' in u:
+                  return 'tahtali.jpg'
+              if 'olympos' in u or 'adrasan' in u:
+                  return 'olympos.jpg'
+              if 'termessos' in u:
+                  return 'termessos.jpg'
+              if 'kemer' in u or 'kaleici' in u:
+                  return 'kemer.jpg'
+              if 'g%c3%b6yn' in u or 'göyn' in u:
+                  return 'termessos.jpg'
+              if 'lycian' in u or 'lician' in u:
+                  return 'tahtali.jpg'
+              return 'phaselis.jpg'
+
+          pattern = re.compile(r'https://commons\.wikimedia\.org/[^\"\']+')
+
+          for p in list(root.rglob('*.html')) + [root / 'map.js']:
+              if not p.exists():
+                  continue
+              text = p.read_text(encoding='utf-8')
+              prefix = '../../images/' if '/places/' in p.as_posix() else 'images/'
+              def repl(m):
+                  return prefix + image_name(m.group(0))
+              text = pattern.sub(repl, text)
+              if p.suffix == '.html':
+                  def og_repl(m):
+                      basename = Path(m.group(1)).name
+                      return f'<meta property="og:image" content="https://mhanmore.github.io/w/trips/antalya-2026/images/{basename}">'
+                  text = re.sub(r'<meta property="og:image" content="([^\"]+)">', og_repl, text)
+                  text = text.replace('Photography is remotely loaded from Wikimedia Commons pending local asset curation.', 'Photography is hosted locally; see images/ATTRIBUTION.md for Wikimedia Commons credits and licences.')
+              p.write_text(text, encoding='utf-8')
+
+          (root / 'images' / 'ATTRIBUTION.md').write_text('''# Image attribution\n\nImages used by this microsite are local copies of Wikimedia Commons files. No endorsement by the photographers is implied.\n\n- **phaselis.jpg** — “Phaselis Antalya.jpg”, Zamir94, CC BY-SA 4.0. Source: https://commons.wikimedia.org/wiki/File:Phaselis_Antalya.jpg · Licence: https://creativecommons.org/licenses/by-sa/4.0/\n- **yanartas.jpg** — “FiresChimera2.jpg”, Jyri Leskinen, available under CC BY-SA 2.5 / GFDL. Source: https://commons.wikimedia.org/wiki/File:FiresChimera2.jpg · Licence: https://creativecommons.org/licenses/by-sa/2.5/\n- **kemer.jpg** — “Kemer beach, Antalya.jpg”, Crymaker, CC BY-SA 2.5. Source: https://commons.wikimedia.org/wiki/File:Kemer_beach,_Antalya.jpg · Licence: https://creativecommons.org/licenses/by-sa/2.5/\n- **tahtali.jpg** — “Tahtali Mountains.jpg”, Wikimedia Commons. Source and licence details: https://commons.wikimedia.org/wiki/File:Tahtali_Mountains.jpg\n- **olympos.jpg** — “Olympos Antalya.jpg”, Serdarsc, CC BY-SA 4.0. Source: https://commons.wikimedia.org/wiki/File:Olympos_Antalya.jpg · Licence: https://creativecommons.org/licenses/by-sa/4.0/\n- **termessos.jpg** — “Termessos - Theater.jpg”, Ingo Mehling, CC BY-SA 3.0. Source: https://commons.wikimedia.org/wiki/File:Termessos_-_Theater.jpg · Licence: https://creativecommons.org/licenses/by-sa/3.0/\n''', encoding='utf-8')
+          PY
+      - name: Commit local assets and references
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add trips/antalya-2026/images
-          git diff --cached --quiet || git commit -m 'Add local Antalya imagery from Wikimedia Commons'
+          git add trips/antalya-2026
+          git diff --cached --quiet || git commit -m 'Host Antalya imagery locally'
           git push
