@@ -159,3 +159,15 @@ footer a{color:var(--gold)}
   .hero{min-height:100svh}
   #map{height:60svh;min-height:400px}
 }
+
+/* Research rabbit holes */
+.rabbit-section{background:linear-gradient(180deg,#fbf7ee 0%,#f4e8db 100%)}
+.rabbitgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:36px}
+.rabbit{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:24px;padding:25px;position:relative;box-shadow:0 12px 30px -26px rgba(36,26,61,.5)}
+.rabbit .spark{font-size:1.45rem;margin-bottom:8px}
+.rabbit h3{font:500 1.55rem/1.08 Fraunces,serif;margin:.1em 0 .5em;color:var(--ink)}
+.rabbit p{font-size:.92rem;color:#5c5375;margin:0}
+.linkrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.linkrow a,.day a.more{display:inline-block;text-decoration:none;color:var(--terracotta-dim);font-size:.78rem;font-weight:800;border-bottom:1px solid rgba(184,80,46,.28)}
+.linkrow a:hover,.day a.more:hover{color:var(--night);border-color:var(--night)}
+@media(max-width:720px){.rabbitgrid{grid-template-columns:1fr}.rabbit{padding:22px}}

@@ -8,3 +8,5 @@ Images used by this microsite are local copies of Wikimedia Commons files. No en
 - **tahtali.jpg** — “Tahtali Mountains.jpg”, Wikimedia Commons. Source and licence details: https://commons.wikimedia.org/wiki/File:Tahtali_Mountains.jpg
 - **olympos.jpg** — “Olympos Antalya.jpg”, Serdarsc, CC BY-SA 4.0. Source: https://commons.wikimedia.org/wiki/File:Olympos_Antalya.jpg · Licence: https://creativecommons.org/licenses/by-sa/4.0/
 - **termessos.jpg** — “Termessos - Theater.jpg”, Ingo Mehling, CC BY-SA 3.0. Source: https://commons.wikimedia.org/wiki/File:Termessos_-_Theater.jpg · Licence: https://creativecommons.org/licenses/by-sa/3.0/
+
+- **goynuk.jpg** — “Göynük Kanyon - panoramio (28).jpg”, Wikimedia Commons. Source/licence: https://commons.wikimedia.org/wiki/File:G%C3%B6yn%C3%BCk_Kanyon_-_panoramio_(28).jpg
