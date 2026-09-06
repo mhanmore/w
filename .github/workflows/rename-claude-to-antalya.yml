@@ -1,0 +1,35 @@
+name: Rename Claude brochure to Antalya
+
+on:
+  push:
+    paths:
+      - '.github/workflows/rename-claude-to-antalya.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rename brochure and fold in mini-guides
+        run: |
+          set -euxo pipefail
+          rm -rf antalya
+          mv claude antalya
+          cp -a trips/antalya-2026/places antalya/places
+          # Main share URL and OG image must point at the final public location.
+          sed -i 's#https://mhanmore.github.io/w/claude/#https://mhanmore.github.io/w/antalya/#g' antalya/index.html
+          # Map pop-ups now link to mini-guides living inside the same shareable microsite.
+          sed -i 's#../trips/antalya-2026/places/#places/#g' antalya/map.js
+          # Mini-guide OG assets should also use the short public path.
+          find antalya/places -name index.html -print0 | xargs -0 sed -i 's#https://mhanmore.github.io/w/trips/antalya-2026/images/#https://mhanmore.github.io/w/antalya/images/#g'
+          # The copied mini-pages already use ../../styles.css and ../../images/*, which resolve correctly here.
+      - name: Commit rename
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A claude antalya
+          git diff --cached --quiet || git commit -m 'Rename shared Antalya brochure to /antalya/'
+          git push
