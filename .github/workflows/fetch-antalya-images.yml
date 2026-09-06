@@ -1,0 +1,32 @@
+name: Fetch Antalya images
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fetch-antalya-images.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download Wikimedia Commons images
+        run: |
+          set -euxo pipefail
+          mkdir -p trips/antalya-2026/images
+          curl -L --fail --retry 3 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Phaselis_Antalya.jpg/1280px-Phaselis_Antalya.jpg' -o trips/antalya-2026/images/phaselis.jpg
+          curl -L --fail --retry 3 'https://upload.wikimedia.org/wikipedia/commons/f/f6/FiresChimera2.jpg' -o trips/antalya-2026/images/yanartas.jpg
+          curl -L --fail --retry 3 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Kemer_beach%2C_Antalya.jpg/1280px-Kemer_beach%2C_Antalya.jpg' -o trips/antalya-2026/images/kemer.jpg
+          curl -L --fail --retry 3 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Tahtali_Mountains.jpg/1280px-Tahtali_Mountains.jpg' -o trips/antalya-2026/images/tahtali.jpg
+          curl -L --fail --retry 3 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Olympos_Antalya.jpg/1280px-Olympos_Antalya.jpg' -o trips/antalya-2026/images/olympos.jpg
+          curl -L --fail --retry 3 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Termessos_-_Theater.jpg/1280px-Termessos_-_Theater.jpg' -o trips/antalya-2026/images/termessos.jpg
+      - name: Commit images
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add trips/antalya-2026/images
+          git diff --cached --quiet || git commit -m 'Add local Antalya imagery from Wikimedia Commons'
+          git push
