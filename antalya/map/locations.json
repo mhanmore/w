@@ -1,0 +1,173 @@
+{
+  "trip": {
+    "title": "Lycia by Fire & Sea",
+    "dates": "2–12 October 2026",
+    "kicker": "Antalya Province · Turquoise Coast, Turkey",
+    "intro": "A coast of warm water, pine forests, mountain ruins and fire that has burned since antiquity.",
+    "center": [30.55, 36.66],
+    "zoom": 9
+  },
+  "locations": [
+    {
+      "id": "camyuva",
+      "category": "Outings",
+      "name": "Çamyuva",
+      "type": "Base",
+      "coordinates": [30.5587, 36.5552],
+      "image": "../images/kemer.jpg",
+      "note": "Pine-shaded base with the mountains at your back and the sea in front.",
+      "description": "This is the deliberate compromise pin for the trip: close to Phaselis, close enough to Kemer for dinner, and quieter than the main resort strip.",
+      "details": [
+        "Use Çamyuva or nearby Kiriş as the base for the full trip.",
+        "A hire car makes the early trailheads and sunset drives much easier.",
+        "The coast road and dolmuş network are useful for shorter hops."
+      ],
+      "links": []
+    },
+    {
+      "id": "phaselis",
+      "category": "Outings",
+      "name": "Phaselis",
+      "type": "Family day",
+      "coordinates": [30.5515, 36.5256],
+      "image": "../images/phaselis.jpg",
+      "note": "Three ancient harbours and a pine forest full of ruins. Swim when the walking wins.",
+      "description": "Founded by Rhodians around 690 BC, Phaselis was a trading port with three harbours. Its ruins now run through pine forest and down to clear swimming coves.",
+      "details": [
+        "Allow half a day for the main street, aqueduct and harbours.",
+        "Bring swim shoes and water: shade is generous, services less so.",
+        "A good low-effort day when the family wants history and sea together."
+      ],
+      "links": [
+        {"label": "Classical-site rabbit hole", "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.04.0006%3Aentry%3Dphaselis"},
+        {"label": "Visitor guide", "url": "https://antalyatouristinformation.com/things-to-do/history/phaselis/"}
+      ]
+    },
+    {
+      "id": "tahtali",
+      "category": "Outings",
+      "name": "Tahtalı Dağı",
+      "type": "Mountain",
+      "coordinates": [30.4788, 36.5366],
+      "image": "../images/tahtali.jpg",
+      "note": "Cable car from 726 m to 2,365 m in about ten minutes.",
+      "description": "The Lycian Olympus is the trip’s big altitude change: a cable-car summit with huge views over the coast and a sharp drop in temperature from the beach.",
+      "details": [
+        "Take a warm layer and windproof shell even on a hot beach day.",
+        "The summit station reaches 2,365 m; conditions can change quickly.",
+        "Use the cable car for the view, or make the ascent a serious walking day."
+      ],
+      "links": [
+        {"label": "Cable car information", "url": "https://www.olymposteleferik.com/en"}
+      ]
+    },
+    {
+      "id": "yanartas",
+      "category": "Outings",
+      "name": "Yanartaş",
+      "type": "Myth & fire",
+      "coordinates": [30.4655, 36.4319],
+      "image": "../images/yanartas.jpg",
+      "note": "Methane-rich flames burning from bare rock since antiquity — go at dusk.",
+      "description": "Yanartaş means ‘burning stone’. Methane and hydrogen seep through fractured rock, creating dozens of flames that gave rise to the Greek story of the Chimera.",
+      "details": [
+        "The path climbs over rough stone; proper shoes and a headtorch matter.",
+        "Dusk makes the flames most atmospheric, but plan the descent before it is fully dark.",
+        "A ruined Temple of Hephaestus sits below the vents."
+      ],
+      "links": [
+        {"label": "The Chimera story", "url": "https://en.wikipedia.org/wiki/Yanarta%C5%9F"}
+      ]
+    },
+    {
+      "id": "olympos",
+      "category": "Outings",
+      "name": "Olympos",
+      "type": "Ruins & beach",
+      "coordinates": [30.464, 36.3961],
+      "image": "../images/olympos.jpg",
+      "note": "A ruined city swallowed by forest, ending on a long shingle beach.",
+      "description": "Once a major Lycian League city, Olympos later became associated with piracy. Today the path through the ruins ends at a broad beach shared with Çıralı.",
+      "details": [
+        "Pair the ruins with a swim and a walk along the protected beach.",
+        "The river corridor is shady and atmospheric but uneven underfoot.",
+        "It works naturally as the landward half of a Çıralı day."
+      ],
+      "links": [
+        {"label": "Walking and history guide", "url": "https://lycianway.co.uk/culture/olympos"}
+      ]
+    },
+    {
+      "id": "adrasan",
+      "category": "Outings",
+      "name": "Adrasan",
+      "type": "Trailhead",
+      "coordinates": [30.4802, 36.3068],
+      "image": "../images/olympos.jpg",
+      "note": "Quiet bay and the start of the Musa Dağı crossing to Olympos.",
+      "description": "Adrasan is a calmer southern bay and a useful marker for the longer Lycian Way terrain beyond Olympos.",
+      "details": [
+        "Treat the Musa Dağı crossing as a proper full-day hike, not a casual walk.",
+        "The bay itself is the softer option if the trail weather turns.",
+        "Carry water: services thin out quickly once you leave the coast."
+      ],
+      "links": [
+        {"label": "Lycian Way", "url": "https://www.lycianway.org/"}
+      ]
+    },
+    {
+      "id": "goynuk",
+      "category": "Outings",
+      "name": "Göynük Canyon",
+      "type": "Canyon",
+      "coordinates": [30.5455, 36.6821],
+      "image": "../images/goynuk.jpg",
+      "note": "Clear-water gorge; the lower canyon is family-sized, the uplands are serious hiking.",
+      "description": "The lower gorge offers pools, waterfalls and a manageable adventure day. Above it, the Lycian Way quickly becomes rougher and more remote.",
+      "details": [
+        "Water shoes and a dry bag are useful for the wet sections.",
+        "Keep the lower canyon as the family default; do not underestimate the upper route.",
+        "Combine it with Kemer or a short coastal afternoon rather than overloading the day."
+      ],
+      "links": [
+        {"label": "Lycian Way", "url": "https://www.lycianway.org/"}
+      ]
+    },
+    {
+      "id": "termessos",
+      "category": "Outings",
+      "name": "Termessos",
+      "type": "Mountain ruins",
+      "coordinates": [30.4654, 36.9821],
+      "image": "../images/termessos.jpg",
+      "note": "A mountain city Alexander failed to force; its ruins remain largely unexcavated.",
+      "description": "Termessos sits around 1,000 m in the forested Taurus foothills. Its defensive position was strong enough that Alexander the Great moved on rather than take it.",
+      "details": [
+        "This is the toughest archaeological visit: uneven paths, steps and a mountain approach.",
+        "The theatre is the defining view, but allow time for the cemetery and city walls.",
+        "Go early for cooler temperatures and a quieter site."
+      ],
+      "links": [
+        {"label": "Termessos background", "url": "https://en.wikipedia.org/wiki/Termessos"}
+      ]
+    },
+    {
+      "id": "antalya",
+      "category": "Outings",
+      "name": "Antalya · Kaleiçi",
+      "type": "Old town",
+      "coordinates": [30.704, 36.884],
+      "image": "../images/kemer.jpg",
+      "note": "Ottoman harbour quarter, Hadrian’s Gate and the Karaalioğlu clifftop park.",
+      "description": "Antalya’s old town is the urban counterpoint to the coast days: Ottoman lanes, a Roman gate, a historic harbour and high cliffs above the Mediterranean.",
+      "details": [
+        "Use the old town for a flexible arrival or departure day.",
+        "Start at Hadrian’s Gate, then drift downhill towards the harbour.",
+        "Karaalioğlu Park gives the best easy sunset pause above the water."
+      ],
+      "links": [
+        {"label": "Antalya overview", "url": "https://en.wikipedia.org/wiki/Antalya"}
+      ]
+    }
+  ]
+}

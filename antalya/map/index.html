@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lycia by Fire &amp; Sea · Map</title>
+  <meta name="description" content="A JSON-driven map of the Antalya coast trip: ruins, mountains, fire and sea.">
+  <meta property="og:title" content="Lycia by Fire &amp; Sea · Map">
+  <meta property="og:description" content="Explore the trip’s locations across Antalya Province.">
+  <meta property="og:type" content="website">
+  <script>
+    if (/\/map$/.test(location.pathname)) {
+      history.replaceState(null, '', `${location.pathname}/${location.search}${location.hash}`);
+    }
+  </script>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="map-shell">
+    <aside class="sidebar" aria-label="Trip locations">
+      <div class="sidebar-top">
+        <a class="back-link" href="../">← Trip plan</a>
+        <p class="eyebrow" id="trip-kicker">Antalya Province · Turkey</p>
+        <h1 id="trip-title">Lycia by Fire &amp; Sea</h1>
+        <p class="dates" id="trip-dates"></p>
+        <p class="intro" id="trip-intro"></p>
+      </div>
+      <section class="category-filters" id="category-filters" aria-label="Filter locations by category"></section>
+      <div class="location-heading" id="location-heading">
+        <span>Locations</span>
+        <span class="count" id="location-count"></span>
+      </div>
+      <div class="location-list" id="location-list" role="list"></div>
+      <section class="location-detail" id="location-detail" hidden aria-live="polite"></section>
+      <div class="sidebar-foot">Map tiles by <a href="https://openfreemap.org/" target="_blank" rel="noreferrer">OpenFreeMap</a> · English labels</div>
+    </aside>
+    <section class="map-panel" aria-label="Interactive map">
+      <div id="map" aria-label="Map of the Antalya coast trip"></div>
+      <div class="map-toolbar">
+        <button id="reset-view" type="button">Reset view</button>
+        <button id="zoom-in" type="button" aria-label="Zoom in">＋</button>
+        <button id="zoom-out" type="button" aria-label="Zoom out">−</button>
+      </div>
+      <div class="map-status" id="map-status">Loading locations…</div>
+    </section>
+  </main>
+  <script src="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
