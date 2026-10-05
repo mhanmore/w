@@ -208,6 +208,7 @@ h2 { margin: 0; font-size: clamp(2.8rem, 6vw, 5.2rem); line-height: .96; }
   font-weight: 850;
 }
 .button-light { background: var(--sun); color: var(--ink); }
+.button-map { background: var(--sea); }
 .button:hover,
 .button:focus-visible,
 .text-link:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
