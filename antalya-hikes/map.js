@@ -31,7 +31,8 @@
   const bounds = new maplibregl.LngLatBounds();
   bounds.extend(origin);
 
-  map.on('load', () => {
+  const addDriveLines = () => {
+    if (map.getSource('drive-lines')) return;
     const lineFeatures = hikes.map((hike) => ({
       type: 'Feature',
       properties: { number: hike.number, minutes: hike.driveMinutes },
@@ -58,7 +59,10 @@
         'line-dasharray': [1, 2]
       }
     });
-  });
+  };
+
+  if (map.isStyleLoaded()) addDriveLines();
+  else map.once('style.load', addDriveLines);
 
   const originMarker = document.createElement('div');
   originMarker.className = 'origin-marker';
@@ -70,20 +74,25 @@
     .setPopup(new maplibregl.Popup({ offset: 18 }).setHTML('<div class="map-popup"><strong>Shared driving origin</strong><span>36.598968, 30.564615</span></div>'))
     .addTo(map);
 
+  const labelledCoordinates = new Set();
   hikes.forEach((hike) => {
     bounds.extend(hike.coordinates);
 
-    const labelPosition = hike.number === 2 ? .42 : hike.number === 3 ? .64 : .5;
-    const driveLabel = document.createElement('div');
-    driveLabel.className = 'drive-time-label';
-    driveLabel.setAttribute('aria-hidden', 'true');
-    driveLabel.textContent = `≈${hike.driveMinutes} min`;
-    new maplibregl.Marker({ element: driveLabel })
-      .setLngLat([
-        origin[0] + (hike.coordinates[0] - origin[0]) * labelPosition,
-        origin[1] + (hike.coordinates[1] - origin[1]) * labelPosition
-      ])
-      .addTo(map);
+    const coordinateKey = hike.coordinates.join(',');
+    if (!labelledCoordinates.has(coordinateKey)) {
+      labelledCoordinates.add(coordinateKey);
+      const labelPosition = hike.number === 2 ? .42 : hike.number === 3 ? .64 : .5;
+      const driveLabel = document.createElement('div');
+      driveLabel.className = 'drive-time-label';
+      driveLabel.setAttribute('aria-hidden', 'true');
+      driveLabel.textContent = `≈${hike.driveMinutes} min`;
+      new maplibregl.Marker({ element: driveLabel, offset: hike.number === 5 ? [62, 0] : [0, 0] })
+        .setLngLat([
+          origin[0] + (hike.coordinates[0] - origin[0]) * labelPosition,
+          origin[1] + (hike.coordinates[1] - origin[1]) * labelPosition
+        ])
+        .addTo(map);
+    }
 
     const marker = document.createElement('button');
     marker.className = 'hike-marker';
@@ -99,7 +108,8 @@
       `<div class="map-popup"><strong>${hike.title}</strong><span>≈${hike.driveMinutes} min drive</span><a href="#${hike.node.id}">Open saved hike →</a></div>`
     );
 
-    new maplibregl.Marker({ element: marker, anchor: 'bottom' })
+    const markerOffset = hike.number === 5 ? [-17, 0] : hike.number === 6 ? [17, 0] : [0, 0];
+    new maplibregl.Marker({ element: marker, anchor: 'bottom', offset: markerOffset })
       .setLngLat(hike.coordinates)
       .setPopup(popup)
       .addTo(map);
