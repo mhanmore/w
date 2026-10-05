@@ -13,8 +13,11 @@
     node,
     number: index + 1,
     title: node.dataset.title || node.querySelector('h3')?.textContent || `Hike ${index + 1}`,
+    driveMinutes: Number(node.dataset.driveMinutes),
     coordinates: [Number(node.dataset.lng), Number(node.dataset.lat)]
   })).filter((hike) => hike.coordinates.every(Number.isFinite));
+
+  const origin = [30.56461518859461, 36.5989684352011];
 
   const map = new maplibregl.Map({
     container: mapNode,
@@ -26,8 +29,61 @@
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
 
   const bounds = new maplibregl.LngLatBounds();
+  bounds.extend(origin);
+
+  map.on('load', () => {
+    const lineFeatures = hikes.map((hike) => ({
+      type: 'Feature',
+      properties: { number: hike.number, minutes: hike.driveMinutes },
+      geometry: { type: 'LineString', coordinates: [origin, hike.coordinates] }
+    }));
+    map.addSource('drive-lines', {
+      type: 'geojson',
+      data: { type: 'FeatureCollection', features: lineFeatures }
+    });
+    map.addLayer({
+      id: 'drive-line-casing',
+      type: 'line',
+      source: 'drive-lines',
+      paint: { 'line-color': '#fffdf8', 'line-width': 5, 'line-opacity': .78 }
+    });
+    map.addLayer({
+      id: 'drive-lines',
+      type: 'line',
+      source: 'drive-lines',
+      layout: { 'line-cap': 'round' },
+      paint: {
+        'line-color': '#b45334',
+        'line-width': 2.5,
+        'line-dasharray': [1, 2]
+      }
+    });
+  });
+
+  const originMarker = document.createElement('div');
+  originMarker.className = 'origin-marker';
+  originMarker.setAttribute('role', 'img');
+  originMarker.setAttribute('aria-label', 'Shared driving origin');
+  originMarker.innerHTML = '<span aria-hidden="true">⌂</span>';
+  new maplibregl.Marker({ element: originMarker })
+    .setLngLat(origin)
+    .setPopup(new maplibregl.Popup({ offset: 18 }).setHTML('<div class="map-popup"><strong>Shared driving origin</strong><span>36.598968, 30.564615</span></div>'))
+    .addTo(map);
+
   hikes.forEach((hike) => {
     bounds.extend(hike.coordinates);
+
+    const labelPosition = hike.number === 2 ? .42 : hike.number === 3 ? .64 : .5;
+    const driveLabel = document.createElement('div');
+    driveLabel.className = 'drive-time-label';
+    driveLabel.setAttribute('aria-hidden', 'true');
+    driveLabel.textContent = `≈${hike.driveMinutes} min`;
+    new maplibregl.Marker({ element: driveLabel })
+      .setLngLat([
+        origin[0] + (hike.coordinates[0] - origin[0]) * labelPosition,
+        origin[1] + (hike.coordinates[1] - origin[1]) * labelPosition
+      ])
+      .addTo(map);
 
     const marker = document.createElement('button');
     marker.className = 'hike-marker';
@@ -40,7 +96,7 @@
     });
 
     const popup = new maplibregl.Popup({ offset: 24 }).setHTML(
-      `<div class="map-popup"><strong>${hike.title}</strong><a href="#${hike.node.id}">Open saved hike →</a></div>`
+      `<div class="map-popup"><strong>${hike.title}</strong><span>≈${hike.driveMinutes} min drive</span><a href="#${hike.node.id}">Open saved hike →</a></div>`
     );
 
     new maplibregl.Marker({ element: marker, anchor: 'bottom' })
@@ -49,7 +105,5 @@
       .addTo(map);
   });
 
-  if (hikes.length > 1) {
-    map.fitBounds(bounds, { padding: 70, maxZoom: 12, duration: 0 });
-  }
+  map.fitBounds(bounds, { padding: 70, maxZoom: 12, duration: 0 });
 })();

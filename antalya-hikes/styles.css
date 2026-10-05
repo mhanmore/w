@@ -233,7 +233,31 @@ footer { padding: 44px 0 64px; border-top: 1px solid var(--line); color: #5c716d
 .hike-marker:focus-visible { outline: 4px solid var(--rust); outline-offset: 3px; }
 .maplibregl-popup-content { padding: 14px 16px !important; border-radius: 16px !important; color: var(--ink); }
 .map-popup strong { display: block; margin-bottom: 4px; }
-.map-popup a { color: var(--sea); font-weight: 850; }
+.map-popup span { display: block; margin-bottom: 6px; color: #58706b; }
+.map-popup a { display: block; color: var(--sea); font-weight: 850; }
+.origin-marker {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  background: var(--ink);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .3);
+  font: 900 1rem/1 system-ui, sans-serif;
+}
+.drive-time-label {
+  padding: 4px 7px;
+  border: 2px solid rgba(22, 59, 56, .12);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, .94);
+  color: var(--ink);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .14);
+  white-space: nowrap;
+  font: 900 .72rem/1 ui-rounded, "Avenir Next", Avenir, system-ui, sans-serif;
+  pointer-events: none;
+}
 
 @media (max-width: 760px) {
   .hero-grid,
