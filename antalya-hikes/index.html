@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Antalya hiking shortlist</title>
+  <meta name="description" content="A growing shortlist of walks around Antalya and the Lycian coast, with route previews and trailhead maps.">
+  <meta property="og:title" content="Antalya hiking shortlist">
+  <meta property="og:description" content="Saved walks around Antalya and the Lycian coast, ready to compare and explore.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mhanmore.github.io/w/antalya-hikes/">
+  <meta property="og:image" content="https://mhanmore.github.io/w/trips/antalya-2026/images/phaselis.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.css">
+</head>
+<body>
+  <a class="skip-link" href="#saved-hikes">Skip to saved hikes</a>
+
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Antalya · trail ideas</p>
+        <h1>Boots on.<br>Options open.</h1>
+      </div>
+      <div class="hero-note">
+        <span class="scribble" aria-hidden="true">↘</span>
+        <p>A small, growing shortlist of walks worth a closer look — from easy coastal loops to proper mountain days.</p>
+        <a class="button button-light" href="#saved-hikes">See the shortlist</a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="jump-nav" aria-label="Page sections">
+    <div class="wrap">
+      <a href="#overview-map">Start-point map</a>
+      <a href="#saved-hikes">Saved hikes</a>
+      <a href="#tour-3331886277">Coastal loop</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="intro">
+      <div class="wrap intro-grid">
+        <div>
+          <p class="eyebrow ink">The maybe pile</p>
+          <h2>Routes first.<br>Decisions later.</h2>
+        </div>
+        <div class="intro-copy">
+          <p>This page keeps promising routes in one place, with enough detail to compare them without opening a dozen tabs.</p>
+          <p class="small-note"><strong>One route saved so far.</strong> Distances and timings come from the linked route provider; always check current access, weather and trail conditions before setting out.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-section" id="overview-map" aria-labelledby="map-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow sun">Find the trailhead</p>
+            <h2 id="map-title">Start points at a glance.</h2>
+          </div>
+          <p>Select a numbered marker to jump to that hike.</p>
+        </div>
+        <div class="map-shell">
+          <div id="map" aria-label="Map showing the start points of saved hikes"></div>
+          <noscript>
+            <div class="map-fallback">The interactive map needs JavaScript. Use the start-point list instead.</div>
+          </noscript>
+        </div>
+        <ol class="start-list" aria-label="Hike start points">
+          <li><a href="#tour-3331886277"><span>1</span> Short flat coastal walk <small>36.542306, 30.556944</small></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="saved" id="saved-hikes" aria-labelledby="saved-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow rust">Saved hikes</p>
+            <h2 id="saved-title">Worth a closer look.</h2>
+          </div>
+          <p>Embedded route previews may use cookies or open content from their provider.</p>
+        </div>
+
+        <!-- To add a hike: copy this article, give it a unique id, update the
+             data attributes, summary and embed. map.js discovers it automatically. -->
+        <article class="hike" id="tour-3331886277" data-title="Short flat coastal walk" data-lat="36.542306" data-lng="30.556944">
+          <div class="hike-topline">
+            <span class="route-number" aria-hidden="true">01</span>
+            <div>
+              <p class="eyebrow sea">Çamyuva coast · loop</p>
+              <h3>Short flat coastal walk</h3>
+            </div>
+          </div>
+
+          <div class="metrics" aria-label="Route summary">
+            <span><strong>9.09</strong> km</span>
+            <span><strong>2:31</strong> hours</span>
+            <span><strong>158</strong> m up</span>
+            <span><strong>Moderate</strong> hike</span>
+          </div>
+
+          <p class="route-note">A compact coastal loop starting near Çamyuva, mixing the seafront with Lycian Way trail. A useful lower-effort option for a warm day.</p>
+
+          <div class="embed-shell">
+            <iframe
+              src="https://www.komoot.com/tour/3331886277/embed?share_token=aUFJ0Z9x7QRE9jLWSHxjTu8WRELA1J82hHn7i39zFGYHuE7TFQ&amp;layout=classic&amp;profile=1"
+              title="Komoot route preview for Short flat coastal walk"
+              width="100%"
+              height="700"
+              loading="lazy"
+              frameborder="0"
+              scrolling="no"
+              allow="fullscreen"
+              allowfullscreen></iframe>
+          </div>
+
+          <div class="route-actions">
+            <a class="button" href="https://www.komoot.com/tour/3331886277?share_token=aUFJ0Z9x7QRE9jLWSHxjTu8WRELA1J82hHn7i39zFGYHuE7TFQ">Open route in Komoot <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#overview-map">Back to map ↑</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <p><strong>Antalya hiking shortlist</strong><br>A working list, not a trail-safety guide.</p>
+      <p>MapLibre GL JS + OpenFreeMap. Route details and embed supplied by Komoot. Start point retrieved from the shared tour data.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.js"></script>
+  <script src="map.js"></script>
+</body>
+</html>
