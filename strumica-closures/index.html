@@ -254,10 +254,19 @@ async function loadParking(){
     const data=await fetchT('carparks.geojson',{cache:'no-cache'},12000);
     if(data.type!=='FeatureCollection'||!Array.isArray(data.features))throw Error('Invalid GeoJSON');
     const fc=data;
+    const blocked=f=>['underground','multi-storey'].includes(f.properties?.type);
+    const allowed={type:'FeatureCollection',features:fc.features.filter(f=>!blocked(f))};
+    const crosses={type:'FeatureCollection',features:fc.features.filter(blocked).flatMap(f=>{
+      const [lon,lat]=f.geometry.coordinates,dx=0.000095,dy=0.00007;
+      return [ {type:'Feature',properties:f.properties,geometry:{type:'MultiLineString',coordinates:[
+        [[lon-dx,lat-dy],[lon+dx,lat+dy]],[[lon-dx,lat+dy],[lon+dx,lat-dy]]
+      ]}} ];
+    })};
     if(!map.getSource('carparks')){
-      map.addSource('carparks',{type:'geojson',data:fc});
-      map.addLayer({id:'carparks-circle',type:'circle',source:'carparks',filter:['!', ['in',['get','type'],['literal',['underground','multi-storey']]]],paint:{'circle-radius':8,'circle-color':'#2675bc','circle-stroke-color':'#fff','circle-stroke-width':2}});
-      map.addLayer({id:'carparks-x',type:'symbol',source:'carparks',filter:['in',['get','type'],['literal',['underground','multi-storey']]],layout:{'text-field':'×','text-size':27,'text-allow-overlap':true},paint:{'text-color':'#d01f30','text-halo-color':'#fff','text-halo-width':2}});
+      map.addSource('carparks',{type:'geojson',data:allowed});
+      map.addSource('carparks-crosses',{type:'geojson',data:crosses});
+      map.addLayer({id:'carparks-circle',type:'circle',source:'carparks',paint:{'circle-radius':8,'circle-color':'#2675bc','circle-stroke-color':'#fff','circle-stroke-width':2}});
+      map.addLayer({id:'carparks-x',type:'line',source:'carparks-crosses',paint:{'line-color':'#d01f30','line-width':5}});
       for(const layer of ['carparks-circle','carparks-x']){
         map.on('click',layer,e=>{
           const p=e.features[0].properties,node=document.createElement('div');
@@ -269,10 +278,10 @@ async function loadParking(){
         map.on('mouseenter',layer,()=>map.getCanvas().style.cursor='pointer');
         map.on('mouseleave',layer,()=>map.getCanvas().style.cursor='');
       }
-    }else map.getSource('carparks').setData(fc);
+    }else {map.getSource('carparks').setData(allowed);map.getSource('carparks-crosses').setData(crosses);}
     // Force parking to the absolute top of the style stack, above closures and all basemap labels.
     for(const id of ['carparks-circle','carparks-x'])if(map.getLayer(id))map.moveLayer(id);
-    parkingLoaded=true;parkingStatus.textContent=fc.features.length+' saved OSM car parks (not live availability).';
+    parkingLoaded=true;parkingStatus.textContent=fc.features.length+' saved OSM car parks: '+allowed.features.length+' other/unknown, '+crosses.features.length+' unsuitable (not live availability).';
     for(const id of ['carparks-circle','carparks-x'])map.setLayoutProperty(id,'visibility',parkingToggle.checked?'visible':'none');
   }catch(e){console.warn('Car park snapshot unavailable',e);parkingStatus.textContent='Parking snapshot not yet available. Untick and tick to retry.';}
   finally{parkingBusy=false;}
