@@ -93,13 +93,30 @@ function chains(ways) {
   }
   return segs;
 }
-// Index on the chain nearest to any way of the crossing street (within tol metres).
-function junction(chain, crossWays, tol = 40) {
+// Nearest node of the street's ways to any way of the crossing street.
+function nearestNode(nodes, crossWays, tol) {
   let best = null;
-  for (const w of crossWays) for (let i = 0; i < chain.length; i++) for (const p of w.g) {
-    const d = dist(chain[i], p); if (d < tol && (!best || d < best.d)) best = { d, i };
-  }
+  nodes.forEach((n, i) => { for (const w of crossWays) for (const p of w.g) { const d = dist(n, p); if (d < tol && (!best || d < best.d)) best = { d, i }; } });
   return best;
+}
+// Shortest path along the street between two junctions. Ways are linked where they share or nearly
+// share a node (<25 m), which bridges dual carriageways and roundabout gaps in OSM.
+function streetPath(ways, fromW, toW) {
+  const nodes = [], adj = [];
+  for (const w of ways) w.g.forEach((p, k) => { const i = nodes.push(p) - 1; adj[i] = []; if (k) { const d = dist(p, nodes[i - 1]); adj[i].push([i - 1, d]); adj[i - 1].push([i, d]); } });
+  for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) { const d = dist(nodes[i], nodes[j]); if (d < 25) { adj[i].push([j, d]); adj[j].push([i, d]); } }
+  const a = nearestNode(nodes, fromW, 100), b = nearestNode(nodes, toW, 100);
+  if (!a || !b || a.i === b.i) return null;
+  const D = new Array(nodes.length).fill(Infinity), prev = new Array(nodes.length).fill(-1), done = new Set();
+  D[a.i] = 0;
+  for (;;) {
+    let u = -1; for (let i = 0; i < nodes.length; i++) if (!done.has(i) && D[i] < Infinity && (u < 0 || D[i] < D[u])) u = i;
+    if (u < 0 || u === b.i) break; done.add(u);
+    for (const [v, w] of adj[u]) if (D[u] + w < D[v]) { D[v] = D[u] + w; prev[v] = u; }
+  }
+  if (D[b.i] === Infinity) return null;
+  const path = []; for (let u = b.i; u >= 0; u = prev[u]) path.unshift(nodes[u]);
+  return path;
 }
 
 // ---------- closure definitions (from the announcement) ----------
@@ -107,7 +124,7 @@ const DEFS = [
   { label: 'Leninova (Cvetan Dimov / Braka Miladinovi → Marshal Tito)', pick: w => is(w, 'leninova'),
     from: w => is(w, 'cvetan') || is(w, 'braka'), to: w => is(w, 'tito') },
   { label: 'Balkanska Boulevard', pick: w => is(w, 'balkanska') },
-  { label: 'Goce Delčev (Balkanska → Mladinska)', pick: w => is(w, 'goce'), from: w => is(w, 'balkanska'), to: w => is(w, 'mladinska') },
+  { label: 'Goce Delčev (Balkanska → Mladinska)', pick: w => is(w, 'goce') && !has(nameOf(w), ['плоштад', 'ploshtad', 'plostad']), from: w => is(w, 'balkanska'), to: w => is(w, 'mladinska') },
   { label: 'Marshal Tito Boulevard', pick: isTitoBlvd },
   { label: 'Marshal Tito Street (Kruševska Republika → Elka Jankova)', pick: isTitoStreet, from: w => is(w, 'krusevska'), to: w => is(w, 'elka') }
 ];
@@ -124,13 +141,13 @@ function build(ways) {
     }
     const fromW = ways.filter(def.from), toW = ways.filter(def.to);
     let hit = false;
+    // 1) both junctions on one continuous chain (handles each carriageway of a dual road)
     for (const c of ch) {
-      const a = junction(c, fromW), b = junction(c, toW);
-      if (a && b && a.i !== b.i) {
-        features.push(feat(c.slice(Math.min(a.i, b.i), Math.max(a.i, b.i) + 1), def.label, 'junction to junction', false));
-        hit = true;
-      }
+      const a = nearestNode(c, fromW, 40), b = nearestNode(c, toW, 40);
+      if (a && b && a.i !== b.i) { features.push(feat(c.slice(Math.min(a.i, b.i), Math.max(a.i, b.i) + 1), def.label, 'junction to junction', false)); hit = true; }
     }
+    // 2) otherwise route across the street's OSM ways between the two junctions
+    if (!hit) { const path = streetPath(own, fromW, toW); if (path) { features.push(feat(path, def.label, 'junction to junction', false)); hit = true; } }
     if (hit) report.push(`✓ ${def.label}: cropped at junctions`);
     else {
       ch.forEach(c => features.push(feat(c, def.label, 'approximate – end junctions not found in OSM; whole street shown', true)));
