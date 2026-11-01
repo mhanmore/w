@@ -217,7 +217,8 @@ async function load() {
 
 const parkingToggle=document.getElementById('parking-toggle'),parkingStatus=document.getElementById('parking-status');
 let parkingLoaded=false,parkingBusy=false;
-const parkingQuery='[out:json][timeout:25];(nwr["amenity"="parking"](41.417,22.615,41.458,22.675););out center;';
+// Central Strumica only (~2.8 x 3.1 km); nodes and ways, no costly relation expansion.
+const parkingQuery='[out:json][timeout:18];(node["amenity"="parking"](41.424,22.627,41.452,22.661);way["amenity"="parking"](41.424,22.627,41.452,22.661););out center;';
 function parkingFeature(e){
   const lat=e.lat??e.center?.lat,lon=e.lon??e.center?.lon;
   if(!Number.isFinite(lat)||!Number.isFinite(lon))return null;
@@ -243,12 +244,12 @@ function addParking(data){
   map.setLayoutProperty('carparks-circle','visibility',parkingToggle.checked?'visible':'none');
 }
 async function loadParking(){
-  if(parkingBusy)return;parkingBusy=true;parkingStatus.textContent='Fetching car parks from Overpass…';
-  const eps=['https://overpass.private.coffee/api/interpreter','https://overpass.kumi.systems/api/interpreter','https://overpass-api.de/api/interpreter'];
+  if(parkingBusy)return;parkingBusy=true;parkingStatus.textContent='Fetching central Strumica car parks from Overpass…';
+  const eps=['https://overpass.kumi.systems/api/interpreter','https://overpass.private.coffee/api/interpreter','https://overpass-api.de/api/interpreter'];
   try{
     for(const ep of eps){
       try{
-        const data=await fetchT(ep+'?data='+encodeURIComponent(parkingQuery),{},12000);
+        const data=await fetchT(ep,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'data='+encodeURIComponent(parkingQuery)},22000);
         if(!Array.isArray(data.elements))throw Error('Invalid Overpass response');
         addParking(data);return;
       }catch(e){console.warn('Parking query failed',ep,e);}
