@@ -47,17 +47,17 @@ if (!window.maplibregl) {
 
 const map = new maplibregl.Map({
   container: 'map', center: [22.643, 41.4375], zoom: 14.2,
-  style: { version: 8,
-    sources: { base: { type: 'raster', tileSize: 256, attribution: '© OpenStreetMap contributors',
-      tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'], maxzoom: 19 } },
-    layers: [{ id: 'base', type: 'raster', source: 'base', paint: { 'raster-saturation': -0.85, 'raster-opacity': 0.9 } }] }
+  style: 'https://tiles.openfreemap.org/styles/liberty'
 });
 map.addControl(new maplibregl.NavigationControl(), 'bottom-right');
-map.addSource('satellite',{type:'raster',tileSize:256,tiles:['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],attribution:'Powered by Esri | Esri, Maxar, Earthstar Geographics, and the GIS User Community'});
-map.addLayer({id:'satellite',type:'raster',source:'satellite',layout:{visibility:'none'}},'base');
+// Satellite is initialised only after the vector style is ready.
+map.once('style.load',()=>{
+  map.addSource('satellite',{type:'raster',tileSize:256,tiles:['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],attribution:'Powered by Esri | Esri, Maxar, Earthstar Geographics, and the GIS User Community'});
+  const firstSymbol=map.getStyle().layers.find(l=>l.type==='symbol')?.id;
+  map.addLayer({id:'satellite',type:'raster',source:'satellite',layout:{visibility:'none'}},firstSymbol);
+});
 document.getElementById('satellite-toggle').addEventListener('change',e=>{
-  map.setLayoutProperty('satellite','visibility',e.target.checked?'visible':'none');
-  map.setLayoutProperty('base','visibility',e.target.checked?'none':'visible');
+  if(map.getLayer('satellite'))map.setLayoutProperty('satellite','visibility',e.target.checked?'visible':'none');
 });
 // Native MapLibre geolocation control uses watchPosition and a blue location dot.
 const geo=new maplibregl.GeolocateControl({positionOptions:{enableHighAccuracy:true,maximumAge:5000},trackUserLocation:true,showUserLocation:true,showAccuracyCircle:true,showUserHeading:true,fitBoundsOptions:{maxZoom:16}});
@@ -271,7 +271,7 @@ async function loadParking(){
       }
     }else map.getSource('carparks').setData(fc);
     parkingLoaded=true;parkingStatus.textContent=fc.features.length+' saved OSM car parks (not live availability).';
-    map.setLayoutProperty('carparks-circle','visibility',parkingToggle.checked?'visible':'none');
+    for(const id of ['carparks-circle','carparks-x'])map.setLayoutProperty(id,'visibility',parkingToggle.checked?'visible':'none');
   }catch(e){console.warn('Car park snapshot unavailable',e);parkingStatus.textContent='Parking snapshot not yet available. Untick and tick to retry.';}
   finally{parkingBusy=false;}
 }
