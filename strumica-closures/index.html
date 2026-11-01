@@ -25,8 +25,8 @@ button{padding:6px 10px;margin-top:6px}#status{font-size:12px;margin:9px 0}
   <strong>1 November 2026 · 10:00–13:00</strong>
   <p style="margin:8px 0 2px"><span class="swatch"></span>Closure (junction-to-junction or whole street)</p>
   <p style="margin:2px 0"><span class="swatch approx"></span>Approximate – endpoints not verified</p>
-  <label><input id="toggle" type="checkbox" checked> Show closures</label>
-  <p style="margin:7px 0 2px"><label><input id="parking-toggle" type="checkbox"> <span class="swatch parking"></span>Show car parks (OSM)</label></p><div id="parking-status" role="status"></div>
+  <label><input id="toggle" type="checkbox" checked> Show closures</label><p style="margin:7px 0 2px"><label><input id="satellite-toggle" type="checkbox"> Satellite imagery (Esri)</label></p>
+  <p style="margin:7px 0 2px"><label><input id="parking-toggle" type="checkbox"> <span class="swatch parking"></span>Show car parks (OSM)</label></p><div id="parking-status" role="status"></div><div class="muted">Blue = other/unknown parking; red × = underground or multi-storey (unsuitable).</div>
   <div id="status">Loading road geometry…</div>
   <details><summary class="muted">How each street was matched</summary><ul id="diag"></ul></details>
   <button id="retry" hidden>Retry</button>
@@ -53,6 +53,12 @@ const map = new maplibregl.Map({
     layers: [{ id: 'base', type: 'raster', source: 'base', paint: { 'raster-saturation': -0.85, 'raster-opacity': 0.9 } }] }
 });
 map.addControl(new maplibregl.NavigationControl(), 'bottom-right');
+map.addSource('satellite',{type:'raster',tileSize:256,tiles:['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],attribution:'Powered by Esri | Esri, Maxar, Earthstar Geographics, and the GIS User Community'});
+map.addLayer({id:'satellite',type:'raster',source:'satellite',layout:{visibility:'none'}},'base');
+document.getElementById('satellite-toggle').addEventListener('change',e=>{
+  map.setLayoutProperty('satellite','visibility',e.target.checked?'visible':'none');
+  map.setLayoutProperty('base','visibility',e.target.checked?'none':'visible');
+});
 // Native MapLibre geolocation control uses watchPosition and a blue location dot.
 const geo=new maplibregl.GeolocateControl({positionOptions:{enableHighAccuracy:true,maximumAge:5000},trackUserLocation:true,showUserLocation:true,showAccuracyCircle:true,showUserHeading:true,fitBoundsOptions:{maxZoom:16}});
 map.addControl(geo,'bottom-right');
@@ -240,7 +246,7 @@ function addParking(data){
     map.on('mouseleave','carparks-circle',()=>map.getCanvas().style.cursor='');
   }else map.getSource('carparks').setData(fc);
   parkingLoaded=true;parkingStatus.textContent=fc.features.length+' mapped car parks (availability not live).';
-  map.setLayoutProperty('carparks-circle','visibility',parkingToggle.checked?'visible':'none');
+  for(const id of ['carparks-circle','carparks-x'])map.setLayoutProperty(id,'visibility',parkingToggle.checked?'visible':'none');
 }
 async function loadParking(){
   if(parkingBusy)return;parkingBusy=true;parkingStatus.textContent='Loading saved car park locations…';
@@ -250,15 +256,19 @@ async function loadParking(){
     const fc=data;
     if(!map.getSource('carparks')){
       map.addSource('carparks',{type:'geojson',data:fc});
-      map.addLayer({id:'carparks-circle',type:'circle',source:'carparks',paint:{'circle-radius':8,'circle-color':'#2675bc','circle-stroke-color':'#fff','circle-stroke-width':2}});
-      map.on('click','carparks-circle',e=>{
-        const p=e.features[0].properties,node=document.createElement('div');
-        const heading=document.createElement('strong');heading.textContent=p.name;node.append(heading);
-        for(const [k,v] of [['Access',p.access],['Fee',p.fee],['Type',p.type]]){const line=document.createElement('div');line.textContent=k+': '+v;node.append(line);}
-        new maplibregl.Popup().setLngLat(e.lngLat).setDOMContent(node).addTo(map);
-      });
-      map.on('mouseenter','carparks-circle',()=>map.getCanvas().style.cursor='pointer');
-      map.on('mouseleave','carparks-circle',()=>map.getCanvas().style.cursor='');
+      map.addLayer({id:'carparks-circle',type:'circle',source:'carparks',filter:['!', ['in',['get','type'],['literal',['underground','multi-storey']]]],paint:{'circle-radius':8,'circle-color':'#2675bc','circle-stroke-color':'#fff','circle-stroke-width':2}});
+      map.addLayer({id:'carparks-x',type:'symbol',source:'carparks',filter:['in',['get','type'],['literal',['underground','multi-storey']]],layout:{'text-field':'×','text-size':27,'text-allow-overlap':true},paint:{'text-color':'#d01f30','text-halo-color':'#fff','text-halo-width':2}});
+      for(const layer of ['carparks-circle','carparks-x']){
+        map.on('click',layer,e=>{
+          const p=e.features[0].properties,node=document.createElement('div');
+          const heading=document.createElement('strong');heading.textContent=p.name;node.append(heading);
+          for(const [k,v] of [['Access',p.access],['Fee',p.fee],['Type',p.type]]){const line=document.createElement('div');line.textContent=k+': '+v;node.append(line);}
+          if(['underground','multi-storey'].includes(p.type)){const warning=document.createElement('strong');warning.textContent=' Unsuitable: covered/structured parking';node.append(warning);}
+          new maplibregl.Popup().setLngLat(e.lngLat).setDOMContent(node).addTo(map);
+        });
+        map.on('mouseenter',layer,()=>map.getCanvas().style.cursor='pointer');
+        map.on('mouseleave',layer,()=>map.getCanvas().style.cursor='');
+      }
     }else map.getSource('carparks').setData(fc);
     parkingLoaded=true;parkingStatus.textContent=fc.features.length+' saved OSM car parks (not live availability).';
     map.setLayoutProperty('carparks-circle','visibility',parkingToggle.checked?'visible':'none');
@@ -266,8 +276,8 @@ async function loadParking(){
   finally{parkingBusy=false;}
 }
 parkingToggle.addEventListener('change',()=>{
-  if(!parkingToggle.checked){if(map.getLayer('carparks-circle'))map.setLayoutProperty('carparks-circle','visibility','none');return;}
-  if(parkingLoaded){map.setLayoutProperty('carparks-circle','visibility','visible');return;}
+  if(!parkingToggle.checked){for(const id of ['carparks-circle','carparks-x'])if(map.getLayer(id))map.setLayoutProperty(id,'visibility','none');return;}
+  if(parkingLoaded){for(const id of ['carparks-circle','carparks-x'])map.setLayoutProperty(id,'visibility','visible');return;}
   if(map.isStyleLoaded())loadParking();else map.once('style.load',loadParking);
 });
 
