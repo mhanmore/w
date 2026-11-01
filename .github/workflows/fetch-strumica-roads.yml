@@ -18,11 +18,11 @@ jobs:
       - name: Download named roads from Overpass (with mirror fallback)
         run: |
           set -uo pipefail
-          Q='[out:json][timeout:60];way(41.417,22.615,41.458,22.675)[highway][name];out geom;'
+          Q='[out:json][timeout:60];way(41.417,22.615,41.458,22.675)[highway][name~"ленин|тито|балкан|гоце|цветан|миладин|крушев|младин|јанков|lenin|tito|balkan|goce|cvetan|miladin|krusev|mladin|jankov",i];out geom;'
           ok=0
           for ep in https://overpass-api.de/api/interpreter https://overpass.kumi.systems/api/interpreter https://overpass.private.coffee/api/interpreter https://maps.mail.ru/osm/tools/overpass/api/interpreter; do
             echo "Trying $ep"
-            if curl -sS --fail -m 120 --data-urlencode "data=$Q" "$ep" -o /tmp/raw.json && python3 -c "import json;d=json.load(open('/tmp/raw.json'));assert len(d['elements'])>20"; then ok=1; break; fi
+            if curl -sS --fail -m 120 -A "mhanmore-w-pages/1.0 (https://github.com/mhanmore/w)" -H "Accept: application/json" --data-urlencode "data=$Q" "$ep" -o /tmp/raw.json && python3 -c "import json;d=json.load(open('/tmp/raw.json'));assert len(d['elements'])>3"; then ok=1; break; fi
           done
           [ "$ok" = 1 ] || { echo "All Overpass mirrors failed"; exit 1; }
       - name: Slim to lon/lat geometry and write report
