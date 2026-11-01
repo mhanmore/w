@@ -1,0 +1,45 @@
+name: Cache Strumica car parks
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/strumica-parking.yml'
+permissions:
+  contents: write
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch OSM parking snapshot
+        run: |
+          python3 - <<'PY'
+          import json, urllib.parse, urllib.request, time
+          query='[out:json][timeout:30];(node["amenity"="parking"](41.424,22.627,41.452,22.661);way["amenity"="parking"](41.424,22.627,41.452,22.661););out center;'
+          endpoints=['https://overpass.kumi.systems/api/interpreter','https://overpass.private.coffee/api/interpreter','https://overpass-api.de/api/interpreter']
+          for endpoint in endpoints:
+              try:
+                  req=urllib.request.Request(endpoint,data=urllib.parse.urlencode({'data':query}).encode(),headers={'User-Agent':'StrumicaClosureMap/1.0 (one-off OSM snapshot)'})
+                  with urllib.request.urlopen(req,timeout=55) as response: data=json.load(response)
+                  features=[]
+                  for e in data['elements']:
+                      lat=e.get('lat',e.get('center',{}).get('lat'))
+                      lon=e.get('lon',e.get('center',{}).get('lon'))
+                      if lat is None or lon is None: continue
+                      t=e.get('tags',{})
+                      features.append({'type':'Feature','geometry':{'type':'Point','coordinates':[lon,lat]},'properties':{'name':t.get('name','Car park'),'access':t.get('access','unspecified'),'fee':t.get('fee','unknown'),'type':t.get('parking','unspecified'),'osm':str(e['type'])+'/'+str(e['id'])}})
+                  if not features: raise RuntimeError('Empty parking result; keeping previous snapshot')
+                  with open('strumica-closures/carparks.geojson','w') as f: json.dump({'type':'FeatureCollection','features':features},f,ensure_ascii=False)
+                  print('Saved',len(features),'car parks from',endpoint)
+                  break
+              except Exception as exc:
+                  print(endpoint,repr(exc))
+                  time.sleep(2)
+          else: raise SystemExit('All Overpass endpoints failed; no snapshot overwritten')
+          PY
+      - name: Commit snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add strumica-closures/carparks.geojson
+          if ! git diff --cached --quiet; then git commit -m "Cache OSM Strumica car parks"; git push; fi
