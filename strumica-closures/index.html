@@ -196,7 +196,6 @@ async function load() {
     map.addLayer({ id: 'closure-halo', type: 'line', source: 'closures', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': '#fff', 'line-width': 11, 'line-opacity': 0.85 } });
     map.addLayer({ id: 'closures', type: 'line', source: 'closures', filter: ['!', ['get', 'approx']], layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': '#c72535', 'line-width': 6 } });
     map.addLayer({ id: 'closures-approx', type: 'line', source: 'closures', filter: ['get', 'approx'], paint: { 'line-color': '#e0782a', 'line-width': 6, 'line-dasharray': [1.5, 1] } });
-      paint: { 'line-color': ['case', ['get', 'approx'], '#e0782a', '#c72535'], 'line-width': 6, 'line-dasharray': ['case', ['get', 'approx'], ['literal', [1.5, 1]], ['literal', [1, 0]]] } });
     map.on('click', ['closures', 'closures-approx'], e => { const p = e.features?.[0]?.properties; if (p) new maplibregl.Popup().setLngLat(e.lngLat).setHTML('<b>' + p.name + '</b><br>' + p.note).addTo(map); });
     map.on('mouseenter', ['closures', 'closures-approx'], () => map.getCanvas().style.cursor = 'pointer');
     map.on('mouseleave', ['closures', 'closures-approx'], () => map.getCanvas().style.cursor = '');
