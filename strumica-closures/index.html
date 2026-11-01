@@ -270,6 +270,8 @@ async function loadParking(){
         map.on('mouseleave',layer,()=>map.getCanvas().style.cursor='');
       }
     }else map.getSource('carparks').setData(fc);
+    // Force parking to the absolute top of the style stack, above closures and all basemap labels.
+    for(const id of ['carparks-circle','carparks-x'])if(map.getLayer(id))map.moveLayer(id);
     parkingLoaded=true;parkingStatus.textContent=fc.features.length+' saved OSM car parks (not live availability).';
     for(const id of ['carparks-circle','carparks-x'])map.setLayoutProperty(id,'visibility',parkingToggle.checked?'visible':'none');
   }catch(e){console.warn('Car park snapshot unavailable',e);parkingStatus.textContent='Parking snapshot not yet available. Untick and tick to retry.';}
@@ -277,8 +279,8 @@ async function loadParking(){
 }
 parkingToggle.addEventListener('change',()=>{
   if(!parkingToggle.checked){for(const id of ['carparks-circle','carparks-x'])if(map.getLayer(id))map.setLayoutProperty(id,'visibility','none');return;}
-  if(parkingLoaded){for(const id of ['carparks-circle','carparks-x'])map.setLayoutProperty(id,'visibility','visible');return;}
-  if(map.isStyleLoaded())loadParking();else map.once('style.load',loadParking);
+  if(parkingLoaded){for(const id of ['carparks-circle','carparks-x']){map.moveLayer(id);map.setLayoutProperty(id,'visibility','visible');}return;}
+  if(map.getStyle() && map.isStyleLoaded())loadParking();else map.once('load',loadParking);
 });
 
 retryBtn.onclick = load;
