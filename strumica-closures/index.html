@@ -211,7 +211,9 @@ async function load() {
 }
 
 retryBtn.onclick = load;
-map.on('load', load);
+// Don't wait for basemap tiles ('load' does): draw closures as soon as the style is ready.
+let started = false; const start = () => { if (!started) { started = true; load(); } };
+map.once('style.load', start); map.once('load', start);
 document.getElementById('toggle').addEventListener('change', e => {
   for (const id of ['closures', 'closures-approx', 'closure-halo']) if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', e.target.checked ? 'visible' : 'none');
 });
