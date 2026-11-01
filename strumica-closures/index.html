@@ -218,7 +218,6 @@ async function load() {
 const parkingToggle=document.getElementById('parking-toggle'),parkingStatus=document.getElementById('parking-status');
 let parkingLoaded=false,parkingBusy=false;
 // Central Strumica only (~2.8 x 3.1 km); nodes and ways, no costly relation expansion.
-const parkingQuery='[out:json][timeout:18];(node["amenity"="parking"](41.424,22.627,41.452,22.661);way["amenity"="parking"](41.424,22.627,41.452,22.661););out center;';
 function parkingFeature(e){
   const lat=e.lat??e.center?.lat,lon=e.lon??e.center?.lon;
   if(!Number.isFinite(lat)||!Number.isFinite(lon))return null;
@@ -244,18 +243,27 @@ function addParking(data){
   map.setLayoutProperty('carparks-circle','visibility',parkingToggle.checked?'visible':'none');
 }
 async function loadParking(){
-  if(parkingBusy)return;parkingBusy=true;parkingStatus.textContent='Fetching central Strumica car parks from Overpass…';
-  const eps=['https://overpass.kumi.systems/api/interpreter','https://overpass.private.coffee/api/interpreter','https://overpass-api.de/api/interpreter'];
+  if(parkingBusy)return;parkingBusy=true;parkingStatus.textContent='Loading saved car park locations…';
   try{
-    for(const ep of eps){
-      try{
-        const data=await fetchT(ep,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'data='+encodeURIComponent(parkingQuery)},22000);
-        if(!Array.isArray(data.elements))throw Error('Invalid Overpass response');
-        addParking(data);return;
-      }catch(e){console.warn('Parking query failed',ep,e);}
-    }
-    parkingStatus.textContent='Car park download failed. Untick and tick to retry.';
-  }finally{parkingBusy=false;}
+    const data=await fetchT('carparks.geojson',{cache:'no-cache'},12000);
+    if(data.type!=='FeatureCollection'||!Array.isArray(data.features))throw Error('Invalid GeoJSON');
+    const fc=data;
+    if(!map.getSource('carparks')){
+      map.addSource('carparks',{type:'geojson',data:fc});
+      map.addLayer({id:'carparks-circle',type:'circle',source:'carparks',paint:{'circle-radius':8,'circle-color':'#2675bc','circle-stroke-color':'#fff','circle-stroke-width':2}});
+      map.on('click','carparks-circle',e=>{
+        const p=e.features[0].properties,node=document.createElement('div');
+        const heading=document.createElement('strong');heading.textContent=p.name;node.append(heading);
+        for(const [k,v] of [['Access',p.access],['Fee',p.fee],['Type',p.type]]){const line=document.createElement('div');line.textContent=k+': '+v;node.append(line);}
+        new maplibregl.Popup().setLngLat(e.lngLat).setDOMContent(node).addTo(map);
+      });
+      map.on('mouseenter','carparks-circle',()=>map.getCanvas().style.cursor='pointer');
+      map.on('mouseleave','carparks-circle',()=>map.getCanvas().style.cursor='');
+    }else map.getSource('carparks').setData(fc);
+    parkingLoaded=true;parkingStatus.textContent=fc.features.length+' saved OSM car parks (not live availability).';
+    map.setLayoutProperty('carparks-circle','visibility',parkingToggle.checked?'visible':'none');
+  }catch(e){console.warn('Car park snapshot unavailable',e);parkingStatus.textContent='Parking snapshot not yet available. Untick and tick to retry.';}
+  finally{parkingBusy=false;}
 }
 parkingToggle.addEventListener('change',()=>{
   if(!parkingToggle.checked){if(map.getLayer('carparks-circle'))map.setLayoutProperty('carparks-circle','visibility','none');return;}
