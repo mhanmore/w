@@ -53,9 +53,21 @@
       "@id": "evidence:barking-and-dagenham-primary",
       "@type": "schema:WebPage",
       "schema:url": {
-        "@id": "https://lbbd.moderngov.co.uk/documents/s184324/NSD%20and%20Constitution%20report.pdf"
+        "@id": "https://lbbd.moderngov.co.uk/ieListDocuments.aspx?MId=14096"
       },
       "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:barking-and-dagenham-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://lbbd.moderngov.co.uk/documents/s184324/NSD%20and%20Constitution%20report.pdf"
+      },
+      "nsd:evidenceRole": "secondary",
       "schema:dateAccessed": {
         "@value": "2026-11-02",
         "@type": "xsd:date"
@@ -65,7 +77,7 @@
       "@id": "borough:barking-and-dagenham",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Barking and Dagenham",
       "schema:url": {
@@ -87,10 +99,13 @@
       "nsd:status": "pending_formal_adoption",
       "nsd:confidence": "high",
       "nsd:evidenceType": "official_report",
-      "schema:description": "Planning Committee report says arrangements were being implemented but formal constitutional changes would be considered by Assembly in November.",
+      "schema:description": "Planning Committee endorsed implementation work, but its report states that the formal constitutional changes would be considered by Assembly later in November; no later decision existed at the snapshot date.",
       "prov:wasDerivedFrom": [
         {
           "@id": "evidence:barking-and-dagenham-primary"
+        },
+        {
+          "@id": "evidence:barking-and-dagenham-secondary"
         }
       ],
       "dct:date": {
@@ -119,7 +134,7 @@
       "@id": "borough:barnet",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Barnet",
       "schema:url": {
@@ -161,7 +176,7 @@
       "@id": "evidence:bexley-primary",
       "@type": "schema:WebPage",
       "schema:url": {
-        "@id": "https://www.bexley.gov.uk/about-council/democracy-and-elections/council-meetings-and-decision-making/decisions-bexley"
+        "@id": "https://democracy.bexley.gov.uk/mgConvert2PDF.aspx?ID=127122"
       },
       "nsd:evidenceRole": "primary",
       "schema:dateAccessed": {
@@ -173,7 +188,7 @@
       "@id": "evidence:bexley-secondary",
       "@type": "schema:WebPage",
       "schema:url": {
-        "@id": "https://tenfell.com/explore/buyers/3279/london-borough-of-bexley"
+        "@id": "https://www.bexley.gov.uk/about-council/democracy-and-elections/council-meetings-and-decision-making/decisions-bexley"
       },
       "nsd:evidenceRole": "secondary",
       "schema:dateAccessed": {
@@ -185,7 +200,7 @@
       "@id": "borough:bexley",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Bexley",
       "schema:url": {
@@ -205,9 +220,9 @@
         "@id": "nsd:NationalSchemeOfDelegation2026"
       },
       "nsd:status": "pending_formal_adoption",
-      "nsd:confidence": "medium",
-      "nsd:evidenceType": "official_meeting_listing",
-      "schema:description": "The scheme of delegation and Planning Committee terms of reference were listed for Council on 4 November, after commencement; no earlier adoption decision was located.",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_council_report",
+      "schema:description": "Bexley's official report titled 'Scheme of delegation and Planning Committee Terms of Reference' was prepared for Council on 4 November, two days after the snapshot; adoption therefore remained pending.",
       "prov:wasDerivedFrom": [
         {
           "@id": "evidence:bexley-primary"
@@ -254,7 +269,7 @@
       "@id": "borough:brent",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Brent",
       "schema:url": {
@@ -323,7 +338,7 @@
       "@id": "borough:bromley",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Bromley",
       "schema:url": {
@@ -392,7 +407,7 @@
       "@id": "borough:camden",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Camden",
       "schema:url": {
@@ -434,6 +449,75 @@
       "nsd:adopted": true
     },
     {
+      "@id": "evidence:city-of-london-corporation-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://democracy.cityoflondon.gov.uk/mgAi.aspx?ID=175700"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:city-of-london-corporation-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://democracy.cityoflondon.gov.uk/mgCommitteeDetails.aspx?ID=1395"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "authority:city-of-london-corporation",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonLocalPlanningAuthority"
+      ],
+      "schema:name": "City of London Corporation",
+      "schema:url": {
+        "@id": "https://www.cityoflondon.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:city-of-london-corporation-implementation"
+      }
+    },
+    {
+      "@id": "assertion:city-of-london-corporation-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "authority:city-of-london-corporation"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_committee_resolution_and_current_arrangements",
+      "schema:description": "Planning and Transportation Committee approved the necessary Scheme of Delegations and terms-of-reference amendments on 8 September; Policy and Resources endorsed the package on 24 September, the Court considered it on 8 October, and the current three-panel arrangements operate from October.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:city-of-london-corporation-primary"
+        },
+        {
+          "@id": "evidence:city-of-london-corporation-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-09-08",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
       "@id": "evidence:croydon-primary",
       "@type": "schema:WebPage",
       "schema:url": {
@@ -461,7 +545,7 @@
       "@id": "borough:croydon",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Croydon",
       "schema:url": {
@@ -530,7 +614,7 @@
       "@id": "borough:ealing",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Ealing",
       "schema:url": {
@@ -587,7 +671,7 @@
       "@id": "borough:enfield",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Enfield",
       "schema:url": {
@@ -641,7 +725,7 @@
       "@id": "borough:greenwich",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Royal Borough of Greenwich",
       "schema:url": {
@@ -695,7 +779,7 @@
       "@id": "borough:hackney",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Hackney",
       "schema:url": {
@@ -749,7 +833,7 @@
       "@id": "borough:hammersmith-and-fulham",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Hammersmith and Fulham",
       "schema:url": {
@@ -815,7 +899,7 @@
       "@id": "borough:haringey",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Haringey",
       "schema:url": {
@@ -884,7 +968,7 @@
       "@id": "borough:harrow",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Harrow",
       "schema:url": {
@@ -953,7 +1037,7 @@
       "@id": "borough:havering",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Havering",
       "schema:url": {
@@ -1022,7 +1106,7 @@
       "@id": "borough:hillingdon",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Hillingdon",
       "schema:url": {
@@ -1091,7 +1175,7 @@
       "@id": "borough:hounslow",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Hounslow",
       "schema:url": {
@@ -1160,7 +1244,7 @@
       "@id": "borough:islington",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Islington",
       "schema:url": {
@@ -1229,7 +1313,7 @@
       "@id": "borough:kensington-and-chelsea",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Kensington and Chelsea",
       "schema:url": {
@@ -1286,7 +1370,7 @@
       "@id": "borough:kingston-upon-thames",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Kingston upon Thames",
       "schema:url": {
@@ -1352,7 +1436,7 @@
       "@id": "borough:lambeth",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Lambeth",
       "schema:url": {
@@ -1421,7 +1505,7 @@
       "@id": "borough:lewisham",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Lewisham",
       "schema:url": {
@@ -1490,7 +1574,7 @@
       "@id": "borough:merton",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Merton",
       "schema:url": {
@@ -1535,7 +1619,7 @@
       "@id": "evidence:newham-primary",
       "@type": "schema:WebPage",
       "schema:url": {
-        "@id": "https://mgov.newham.gov.uk/"
+        "@id": "https://mgov.newham.gov.uk/ieListDocuments.aspx?CId=295&MId=15402"
       },
       "nsd:evidenceRole": "primary",
       "schema:dateAccessed": {
@@ -1547,7 +1631,7 @@
       "@id": "evidence:newham-secondary",
       "@type": "schema:WebPage",
       "schema:url": {
-        "@id": "https://councilmonitor.co.uk/council/newham/meeting/2026-11-02-council"
+        "@id": "https://mgov.newham.gov.uk/documents/s192435/FINAL_Constitution%20Review%20-%20Planning%20Reforms.pdf"
       },
       "nsd:evidenceRole": "secondary",
       "schema:dateAccessed": {
@@ -1559,7 +1643,7 @@
       "@id": "borough:newham",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Newham",
       "schema:url": {
@@ -1580,8 +1664,8 @@
       },
       "nsd:status": "scheduled_outcome_unconfirmed",
       "nsd:confidence": "high",
-      "nsd:evidenceType": "official_agenda",
-      "schema:description": "Constitution updates and planning reforms were on the Full Council agenda on the snapshot date; no published outcome was available when checked.",
+      "nsd:evidenceType": "official_full_council_report",
+      "schema:description": "A detailed constitutional amendment package was before Full Council at 7pm on the snapshot date. The report sought approval of the gateway, committee and officer-delegation arrangements, but no Council outcome yet existed when checked earlier that day.",
       "prov:wasDerivedFrom": [
         {
           "@id": "evidence:newham-primary"
@@ -1628,7 +1712,7 @@
       "@id": "borough:redbridge",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Redbridge",
       "schema:url": {
@@ -1673,9 +1757,21 @@
       "@id": "evidence:richmond-upon-thames-primary",
       "@type": "schema:WebPage",
       "schema:url": {
-        "@id": "https://www.richmond.gov.uk/news/news_october_2026/planning_overhaul_risks_weakening_local_democracy"
+        "@id": "https://cabnet.richmond.gov.uk/ieListDocuments.aspx?CId=173&MId=500000735"
       },
       "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:richmond-upon-thames-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://cabnet.richmond.gov.uk/documents/s500022271/Council%20Report.pdf"
+      },
+      "nsd:evidenceRole": "secondary",
       "schema:dateAccessed": {
         "@value": "2026-11-02",
         "@type": "xsd:date"
@@ -1685,7 +1781,7 @@
       "@id": "borough:richmond-upon-thames",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Richmond upon Thames",
       "schema:url": {
@@ -1704,23 +1800,27 @@
       "nsd:implementsScheme": {
         "@id": "nsd:NationalSchemeOfDelegation2026"
       },
-      "nsd:status": "implementation_confirmed_formal_resolution_not_located",
-      "nsd:confidence": "medium",
-      "nsd:evidenceType": "official_news_and_operational_evidence",
-      "schema:description": "The council publicly described implementation and the loss of local call-in from 31 October, but a formal constitutional adoption resolution was not located.",
+      "nsd:status": "adopted",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_full_council_resolution",
+      "schema:description": "Full Council resolved to approve revised Planning Committee terms of reference, procedure rules and planning protocol, and authorised consequential constitutional amendments for the NSD.",
       "prov:wasDerivedFrom": [
         {
           "@id": "evidence:richmond-upon-thames-primary"
+        },
+        {
+          "@id": "evidence:richmond-upon-thames-secondary"
         }
       ],
       "dct:date": {
-        "@value": "2026-10-07",
+        "@value": "2026-10-06",
         "@type": "xsd:date"
       },
       "prov:generatedAtTime": {
         "@value": "2026-11-02T23:59:59Z",
         "@type": "xsd:dateTime"
-      }
+      },
+      "nsd:adopted": true
     },
     {
       "@id": "evidence:southwark-primary",
@@ -1750,7 +1850,7 @@
       "@id": "borough:southwark",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Southwark",
       "schema:url": {
@@ -1807,7 +1907,7 @@
       "@id": "borough:sutton",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Sutton",
       "schema:url": {
@@ -1873,7 +1973,7 @@
       "@id": "borough:tower-hamlets",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Tower Hamlets",
       "schema:url": {
@@ -1942,7 +2042,7 @@
       "@id": "borough:waltham-forest",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Waltham Forest",
       "schema:url": {
@@ -1999,7 +2099,7 @@
       "@id": "borough:wandsworth",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Wandsworth",
       "schema:url": {
@@ -2065,7 +2165,7 @@
       "@id": "borough:westminster",
       "@type": [
         "schema:GovernmentOrganization",
-        "nsd:LondonBoroughCouncil"
+        "nsd:LondonLocalPlanningAuthority"
       ],
       "schema:name": "Westminster",
       "schema:url": {
@@ -2105,48 +2205,6 @@
         "@type": "xsd:dateTime"
       },
       "nsd:adopted": true
-    },
-    {
-      "@id": "authority:city-of-london-corporation",
-      "@type": [
-        "schema:GovernmentOrganization",
-        "nsd:SupplementaryAuthority"
-      ],
-      "schema:name": "City of London Corporation",
-      "schema:url": {
-        "@id": "https://www.cityoflondon.gov.uk/"
-      },
-      "nsd:excludedFromBoroughDenominator": true,
-      "nsd:hasImplementationAssertion": {
-        "@id": "assertion:city-of-london-implementation"
-      }
-    },
-    {
-      "@id": "assertion:city-of-london-implementation",
-      "@type": "nsd:ImplementationAssertion",
-      "nsd:authority": {
-        "@id": "authority:city-of-london-corporation"
-      },
-      "nsd:implementsScheme": {
-        "@id": "nsd:NationalSchemeOfDelegation2026"
-      },
-      "nsd:status": "not_assessed_as_borough_supplementary_only",
-      "nsd:confidence": "low",
-      "schema:description": "The City is not a London borough. Consultation-stage material was located, but no 2026 implementation decision was confirmed in this borough-focused review.",
-      "prov:wasDerivedFrom": {
-        "@id": "evidence:city-of-london-consultation"
-      }
-    },
-    {
-      "@id": "evidence:city-of-london-consultation",
-      "@type": "schema:DigitalDocument",
-      "schema:url": {
-        "@id": "https://democracy.cityoflondon.gov.uk/documents/s213937/Committee%20report%20-%20Modernising%20Planning%20Committees.pdf"
-      },
-      "schema:dateAccessed": {
-        "@value": "2026-11-02",
-        "@type": "xsd:date"
-      }
     }
   ]
 }

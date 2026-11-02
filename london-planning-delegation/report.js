@@ -5,15 +5,13 @@
     adopted: 'adopted',
     implementation_confirmed_formal_resolution_not_located: 'implemented',
     pending_formal_adoption: 'pending',
-    scheduled_outcome_unconfirmed: 'unconfirmed',
-    not_assessed_supplementary: 'supplementary'
+    scheduled_outcome_unconfirmed: 'unconfirmed'
   };
   const STATUS_COLOURS = {
     adopted: '#287668',
     implementation_confirmed_formal_resolution_not_located: '#d79a2b',
     pending_formal_adoption: '#cf5b43',
-    scheduled_outcome_unconfirmed: '#75559a',
-    not_assessed_supplementary: '#566a73'
+    scheduled_outcome_unconfirmed: '#75559a'
   };
 
   const rowsNode = document.querySelector('#borough-rows');
@@ -65,7 +63,7 @@
     });
     rowsNode.innerHTML = features.map(({ properties: p }) => `
       <tr data-id="${escapeHtml(p.id)}">
-        <td data-label="Borough"><button class="borough-button" type="button" data-borough-id="${escapeHtml(p.id)}">${escapeHtml(p.name)}</button></td>
+        <td data-label="Authority"><button class="borough-button" type="button" data-borough-id="${escapeHtml(p.id)}">${escapeHtml(p.name)}</button></td>
         <td data-label="Position"><span class="status-pill ${STATUS_CLASS[p.status]}">${escapeHtml(p.status_label)}</span></td>
         <td data-label="Date">${escapeHtml(formatDate(p.date))}</td>
         <td data-label="Confidence"><span class="confidence">${escapeHtml(p.confidence)}</span></td>
@@ -155,7 +153,6 @@
               'implementation_confirmed_formal_resolution_not_located', STATUS_COLOURS.implementation_confirmed_formal_resolution_not_located,
               'pending_formal_adoption', STATUS_COLOURS.pending_formal_adoption,
               'scheduled_outcome_unconfirmed', STATUS_COLOURS.scheduled_outcome_unconfirmed,
-              'not_assessed_supplementary', STATUS_COLOURS.not_assessed_supplementary,
               '#78878a'
             ],
             'fill-opacity': ['case', ['boolean', ['feature-state', 'hover'], false], .92, .73]

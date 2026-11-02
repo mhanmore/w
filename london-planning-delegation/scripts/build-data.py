@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build browser-ready borough data from the London Datastore and research CSV."""
+"""Build browser-ready LPA data from the London Datastore and research CSV."""
 
 from __future__ import annotations
 
@@ -18,6 +18,7 @@ LAYER_URL = (
 )
 
 NAME_ALIASES = {
+    "City of London": "City of London Corporation",
     "Greenwich": "Royal Borough of Greenwich",
     "Hammersmith and Fulham": "Hammersmith and Fulham",
     "Kensington and Chelsea": "Kensington and Chelsea",
@@ -31,28 +32,6 @@ STATUS_LABELS = {
     ),
     "pending_formal_adoption": "Formal adoption pending",
     "scheduled_outcome_unconfirmed": "Outcome not yet confirmed",
-    "not_assessed_supplementary": "Supplementary; implementation not confirmed",
-}
-
-CITY_RESEARCH = {
-    "id": "city-of-london-corporation",
-    "borough": "City of London Corporation",
-    "official_site": "https://www.cityoflondon.gov.uk/",
-    "status": "not_assessed_supplementary",
-    "adopted": "",
-    "decision_or_evidence_date": "",
-    "confidence": "low",
-    "evidence_type": "official_consultation_report",
-    "evidence_summary": (
-        "The City is not a London borough. Consultation-stage material was located, "
-        "but no 2026 implementation decision was confirmed in this AI-only review."
-    ),
-    "primary_source": (
-        "https://democracy.cityoflondon.gov.uk/documents/s213937/"
-        "Committee%20report%20-%20Modernising%20Planning%20Committees.pdf"
-    ),
-    "secondary_source": "",
-    "checked_at": "2026-11-02",
 }
 
 
@@ -159,17 +138,11 @@ def main() -> None:
     matched = set()
     for feature in source["features"]:
         datastore_name = feature["properties"]["name"]
-        if datastore_name == "City of London":
-            research_name = CITY_RESEARCH["borough"]
-            row = CITY_RESEARCH
-            excluded_from_denominator = True
-        else:
-            research_name = NAME_ALIASES.get(datastore_name, datastore_name)
-            row = research.get(research_name)
-            if not row:
-                raise ValueError(f"No research row matched Datastore borough {datastore_name!r}")
-            matched.add(research_name)
-            excluded_from_denominator = False
+        research_name = NAME_ALIASES.get(datastore_name, datastore_name)
+        row = research.get(research_name)
+        if not row:
+            raise ValueError(f"No research row matched Datastore authority {datastore_name!r}")
+        matched.add(research_name)
         properties = {
             "id": row["id"],
             "name": research_name,
@@ -189,7 +162,6 @@ def main() -> None:
             "primary_source": row["primary_source"],
             "secondary_source": row["secondary_source"],
             "checked_at": row["checked_at"],
-            "excluded_from_borough_denominator": excluded_from_denominator,
         }
         features.append(
             {
@@ -222,10 +194,9 @@ def main() -> None:
         "id", "name", "gss_code", "status", "status_label", "adopted", "date",
         "confidence", "evidence_type", "evidence_summary", "official_site",
         "primary_source", "secondary_source", "checked_at",
-        "excluded_from_borough_denominator",
     ]
     with (args.output / "authorities.csv").open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=report_fields)
+        writer = csv.DictWriter(handle, fieldnames=report_fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(
             {field: feature["properties"].get(field, "") for field in report_fields}

@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>London and the National Scheme of Delegation</title>
-  <meta name="description" content="A borough-by-borough evidence review of arrangements giving effect to England's National Scheme of Delegation of planning functions.">
+  <meta name="description" content="An authority-by-authority evidence review of arrangements giving effect to England's National Scheme of Delegation of planning functions.">
   <meta property="og:title" content="London and the National Scheme of Delegation">
-  <meta property="og:description" content="28 of London's 32 boroughs have published evidence of adoption. Explore the evidence borough by borough.">
+  <meta property="og:description" content="30 of London's 33 local planning authorities have published evidence of adoption. Explore the evidence authority by authority.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://mhanmore.github.io/w/london-planning-delegation/">
   <meta property="og:image" content="https://mhanmore.github.io/w/london-planning-delegation/share.png">
@@ -14,9 +14,9 @@
   <meta name="theme-color" content="#122c36">
   <link rel="preconnect" href="https://tiles.openfreemap.org">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="styles.css?v=20261102-2">
+  <link rel="stylesheet" href="styles.css?v=20261102-3">
   <script defer src="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.js"></script>
-  <script defer src="report.js?v=20261102-2"></script>
+  <script defer src="report.js?v=20261102-3"></script>
 </head>
 <body>
   <a class="skip-link" href="#findings">Skip to findings</a>
@@ -36,7 +36,7 @@
           <h1 id="page-title">Who has put the new delegation rules in place?</h1>
         </div>
         <div class="hero-copy">
-          <p class="standfirst">A borough-by-borough review of published arrangements giving effect to England’s National Scheme of Delegation of planning functions.</p>
+          <p class="standfirst">An authority-by-authority review of published arrangements giving effect to England’s National Scheme of Delegation of planning functions.</p>
           <p class="byline">Research snapshot · 2 November 2026</p>
         </div>
       </div>
@@ -54,20 +54,20 @@
         <p class="section-label" id="findings-title">The finding</p>
         <div class="score-grid">
           <div class="big-number">
-            <strong>28<span>/32</span></strong>
-            <p>boroughs with published evidence of adoption</p>
+            <strong>30<span>/33</span></strong>
+            <p>local planning authorities with published evidence of adoption</p>
           </div>
           <div class="stat-notes">
-            <p><strong>87.5%</strong> adoption evidenced</p>
-            <p><strong>90.6%</strong> operationally aligned when Richmond is included</p>
-            <p><strong>92.9%</strong> of evidenced adoptions occurred in September or October</p>
+            <p><strong>90.9%</strong> adoption evidenced</p>
+            <p><strong>100%</strong> have a published implementation trail</p>
+            <p><strong>93.3%</strong> of evidenced adoptions occurred in September or October</p>
           </div>
           <div class="exception-note">
-            <p class="eyebrow">Four require a qualification</p>
-            <p><strong>Richmond</strong> confirms implementation, but a formal resolution was not located. <strong>Barking &amp; Dagenham</strong> and <strong>Bexley</strong> had formal adoption pending. <strong>Newham’s</strong> scheduled outcome was not published at the review cut-off.</p>
+            <p class="eyebrow">Three await a final recorded outcome</p>
+            <p><strong>Barking &amp; Dagenham</strong> deferred formal constitutional approval to an Assembly later in November. <strong>Bexley’s</strong> Council item was scheduled for 4 November. <strong>Newham’s</strong> Full Council item was due on the evening of the review date.</p>
           </div>
         </div>
-        <p class="census-note">This is a review of the complete population of 32 London boroughs, not a sample. The City of London is shown as a supplementary mapped authority but remains excluded from the borough denominator. The uncertainty is documentary rather than statistical.</p>
+        <p class="census-note">This is a review of all 33 London local planning authorities—the 32 borough councils and the City of London Corporation—not a sample. The uncertainty is documentary rather than statistical.</p>
       </div>
     </section>
 
@@ -83,26 +83,20 @@
         <div class="map-shell">
           <div id="map" role="region" aria-label="Interactive map of National Scheme of Delegation status across London local authorities"></div>
           <div class="map-message" id="map-message" hidden>The interactive basemap could not load. The evidence table below remains available.</div>
-          <noscript><div class="map-message">JavaScript is needed for the interactive map. The evidence table below contains the same borough data.</div></noscript>
+          <noscript><div class="map-message">JavaScript is needed for the interactive map. The evidence table below contains the same authority data.</div></noscript>
         </div>
         <div class="legend" aria-label="Map filters">
           <button class="legend-item active" type="button" data-status="all" aria-pressed="true">
             <span class="swatch all"></span><span>All mapped authorities</span><strong>33</strong>
           </button>
           <button class="legend-item" type="button" data-status="adopted" aria-pressed="false">
-            <span class="swatch adopted"></span><span>Adoption evidenced</span><strong>28</strong>
-          </button>
-          <button class="legend-item" type="button" data-status="implementation_confirmed_formal_resolution_not_located" aria-pressed="false">
-            <span class="swatch implemented"></span><span>Implemented; resolution not located</span><strong>1</strong>
+            <span class="swatch adopted"></span><span>Adoption evidenced</span><strong>30</strong>
           </button>
           <button class="legend-item" type="button" data-status="pending_formal_adoption" aria-pressed="false">
             <span class="swatch pending"></span><span>Formal adoption pending</span><strong>2</strong>
           </button>
           <button class="legend-item" type="button" data-status="scheduled_outcome_unconfirmed" aria-pressed="false">
             <span class="swatch unconfirmed"></span><span>Outcome not yet confirmed</span><strong>1</strong>
-          </button>
-          <button class="legend-item" type="button" data-status="not_assessed_supplementary" aria-pressed="false">
-            <span class="swatch supplementary"></span><span>City: implementation not confirmed</span><strong>1</strong>
           </button>
           <p class="map-credit">Boundaries: <a href="https://data.london.gov.uk/dataset/london-boroughs-e55pw">London Datastore</a>, OGL v3. Basemap: <a href="https://openfreemap.org/">OpenFreeMap</a>.</p>
         </div>
@@ -114,14 +108,14 @@
         <div class="evidence-heading">
           <div>
             <p class="section-label">The evidence</p>
-            <h2 id="evidence-title">32 boroughs + the City</h2>
+            <h2 id="evidence-title">All 33 London LPAs</h2>
           </div>
           <label class="search-label" for="borough-search">
             <span>Find an authority</span>
             <input id="borough-search" type="search" placeholder="e.g. Camden" autocomplete="off">
           </label>
         </div>
-        <p id="result-count" class="result-count" aria-live="polite">Loading borough records…</p>
+        <p id="result-count" class="result-count" aria-live="polite">Loading authority records…</p>
         <div class="table-wrap">
           <table>
             <thead>
@@ -147,7 +141,7 @@
           <h2 id="method-title">A documentary test, not a legal opinion</h2>
         </div>
         <div class="method-copy">
-          <p><strong>This is an AI-only audit of material published on local authority websites.</strong> No authority was contacted and no finding has been independently verified. A borough is marked <strong>adopted</strong> where a council decision, minutes, current constitutional material or comparably strong operational evidence supports adoption. An agenda or recommendation alone is not treated as a completed adoption.</p>
+          <p><strong>This is an AI-only audit of material published on local authority websites.</strong> No authority was contacted and no finding has been independently verified. An authority is marked <strong>adopted</strong> where a council decision, minutes, current constitutional material or comparably strong operational evidence supports adoption. An agenda or recommendation alone is not treated as a completed adoption.</p>
           <p>Each record carries a confidence rating and links back to the underlying evidence. “Medium” generally means that official material strongly indicates adoption but the clearest final resolution or revised constitutional text was not located in the indexed record.</p>
           <p>The National Scheme took effect on 31 October 2026. The government’s guidance says authorities should align their constitutions and delegation arrangements with it. Records may be updated after this snapshot.</p>
           <div class="method-links">

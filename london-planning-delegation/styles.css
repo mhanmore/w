@@ -80,7 +80,6 @@ h2 { font-size: clamp(2.35rem, 5vw, 4.4rem); line-height: .98; }
 .swatch.implemented { background: var(--implemented); }
 .swatch.pending { background: var(--pending); }
 .swatch.unconfirmed { background: var(--unconfirmed); }
-.swatch.supplementary { background: #566a73; }
 .swatch.all { background: conic-gradient(var(--adopted) 0 84.85%, var(--implemented) 0 87.88%, var(--pending) 0 93.94%, var(--unconfirmed) 0 96.97%, #566a73 0); }
 .map-credit { margin: 0; padding: 18px 16px; color: var(--ink-soft); font-size: .72rem; }
 .maplibregl-popup-content { max-width: 280px; padding: 0; border-radius: 0; box-shadow: 0 12px 35px rgba(18,44,54,.24); }
@@ -107,7 +106,6 @@ th:last-child, td:last-child { padding-right: 0; }
 .status-pill.implemented { border-color: var(--implemented); }
 .status-pill.pending { border-color: var(--pending); }
 .status-pill.unconfirmed { border-color: var(--unconfirmed); }
-.status-pill.supplementary { border-color: #566a73; }
 .confidence { text-transform: capitalize; }
 details summary { cursor: pointer; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 .evidence-copy { min-width: 260px; max-width: 440px; padding-top: 12px; color: var(--ink-soft); }

@@ -1,20 +1,17 @@
 # London planning delegation report
 
-Static, mobile-first report on London borough implementation of the National
+Static, mobile-first report on London local planning authority implementation of the National
 Scheme of Delegation of planning functions.
 
 Published path: `https://mhanmore.github.io/w/london-planning-delegation/`
 
 ## Data
 
-- `data/boroughs.csv` is the underlying 32-borough research table.
+- `data/boroughs.csv` is the underlying 33-authority research table (the filename is retained for compatibility).
 - `data/authorities.csv` is the mapped report table, including the City.
 - `data/knowledge-graph.jsonld` is the reusable linked-data version.
 - `data/boroughs.geojson` joins that research to the official London Datastore
-  borough layer, includes the City polygon, and is simplified for browser delivery.
-
-The City of London is mapped as a separately labelled supplementary authority,
-but is excluded from the report denominator because it is not a London borough.
+  borough layer, including the City polygon, and is simplified for browser delivery.
 Boundary data is supplied by the Greater London Authority under the Open
 Government Licence v3.0.
 
