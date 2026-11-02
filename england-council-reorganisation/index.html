@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>England's council reorganisation, mapped</title>
+  <meta name="description" content="Where every area in England's local government reorganisation stands at 2 November 2026, with the July 2026 announcements for comparison.">
+  <meta property="og:title" content="The council map that was meant to change in 2028">
+  <meta property="og:description" content="1 of 21 reorganisation areas is confirmed. 5 are minded-to, 13 withdrawn, 2 awaiting a decision. Status at 2 November 2026.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mhanmore.github.io/w/england-council-reorganisation/">
+  <meta property="og:image" content="https://mhanmore.github.io/w/england-council-reorganisation/share.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#122c36">
+  <link rel="preconnect" href="https://tiles.openfreemap.org">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="styles.css?v=20261102-1">
+  <script defer src="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.js"></script>
+  <script defer src="report.js?v=20261102-1"></script>
+</head>
+<body>
+  <a class="skip-link" href="#findings">Skip to findings</a>
+
+  <header class="masthead">
+    <div class="page-width masthead-row">
+      <a class="wordmark" href="../">Field notes</a>
+      <p>Status review · 2 November 2026</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="page-width hero-grid">
+        <div>
+          <p class="kicker">Local government · England</p>
+          <h1 id="page-title">The council map that was meant to change in 2028</h1>
+        </div>
+        <div class="hero-copy">
+          <p class="standfirst">By July 2026 ministers had set out new unitary councils for most of two-tier England, to go live in April 2028. By November, one area was settled. This is where every area stands.</p>
+          <p class="byline">Research snapshot · 2 November 2026</p>
+        </div>
+      </div>
+    </section>
+
+    <aside class="audit-disclaimer" aria-label="Important limitation">
+      <div class="page-width disclaimer-grid">
+        <p class="disclaimer-label">Important limitation</p>
+        <p><strong>This is not a legal boundary map.</strong> Where a proposal moves parishes or wards between new councils, the district is drawn whole in the council that takes the remainder and is hatched. Structures for withdrawn decisions are shown for reference only and may not return. Compiled from government announcements and council publications; not independently verified.</p>
+      </div>
+    </aside>
+
+    <section class="scoreboard" id="findings" aria-labelledby="findings-title">
+      <div class="page-width">
+        <p class="section-label" id="findings-title">The position</p>
+        <div class="score-grid">
+          <div class="big-number">
+            <strong>1<span>/21</span></strong>
+            <p>reorganisation areas with a confirmed new structure: Surrey, live April 2027</p>
+          </div>
+          <div class="stat-notes">
+            <p><strong>5</strong> minded to proceed, 29 October</p>
+            <p><strong>13</strong> decisions withdrawn and under review</p>
+            <p><strong>2</strong> still awaiting a first decision</p>
+          </div>
+          <div class="exception-note">
+            <p class="eyebrow">The new timetable</p>
+            <p>For every area under review, elections go ahead on existing councils in <strong>May 2027</strong>, shadow elections follow in <strong>May 2028</strong>, and vesting day is now <strong>1 April 2029</strong>. The government says every area will have an outcome by early 2027.</p>
+          </div>
+        </div>
+        <p class="census-note">184 of England's 296 current districts and unitary councils sit inside one of the 21 areas. The remaining 112 — London, the metropolitan boroughs and existing unitaries elsewhere — are outside the programme.</p>
+      </div>
+    </section>
+
+    <section class="map-section" aria-labelledby="map-title">
+      <div class="page-width map-heading">
+        <div>
+          <p class="section-label">The geography</p>
+          <h2 id="map-title">Proposed councils by status</h2>
+        </div>
+        <p>Select a council for its make-up. Switch views to compare today's position with what was announced before the September review.</p>
+      </div>
+      <div class="page-width map-layout">
+        <div class="map-shell">
+          <div class="view-toggle" role="group" aria-label="Map view">
+            <button type="button" class="view-button active" data-view="current" aria-pressed="true">Now<small>2 Nov 2026</small></button>
+            <button type="button" class="view-button" data-view="original" aria-pressed="false">As announced<small>Mar–Jul 2026</small></button>
+          </div>
+          <div id="map" role="region" aria-label="Interactive map of local government reorganisation areas in England"></div>
+          <div class="map-message" id="map-message" hidden>The interactive basemap could not load. The area table below remains available.</div>
+          <noscript><div class="map-message">JavaScript is needed for the interactive map. The table below contains the same data.</div></noscript>
+        </div>
+        <div class="legend" aria-label="Map view and filters">
+          <div id="legend-items"></div>
+          <p class="legend-key"><span class="swatch hatch" aria-hidden="true"></span>District split between new councils; drawn whole</p>
+          <p class="map-credit">Boundaries: <a href="https://www.planning.data.gov.uk/dataset/local-authority-district">planning.data.gov.uk</a> (ONS), OGL v3; contains OS data © Crown copyright 2026. Basemap: <a href="https://openfreemap.org/">OpenFreeMap</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="evidence-section" id="evidence" aria-labelledby="evidence-title">
+      <div class="page-width">
+        <div class="evidence-heading">
+          <div>
+            <p class="section-label">The record</p>
+            <h2 id="evidence-title">All 21 areas</h2>
+          </div>
+          <label class="search-label" for="area-search">
+            <span>Find an area or council</span>
+            <input id="area-search" type="search" placeholder="e.g. Cherwell" autocomplete="off">
+          </label>
+        </div>
+        <p id="result-count" class="result-count" aria-live="polite">Loading area records…</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Area</th>
+                <th scope="col">Now</th>
+                <th scope="col">As announced</th>
+                <th scope="col">Proposed councils</th>
+                <th scope="col">Detail</th>
+              </tr>
+            </thead>
+            <tbody id="area-rows"></tbody>
+          </table>
+        </div>
+        <div id="data-error" class="data-error" hidden>The detailed records could not be loaded. Download the source CSV below instead.</div>
+      </div>
+    </section>
+
+    <section class="method-section" aria-labelledby="method-title">
+      <div class="page-width method-grid">
+        <div>
+          <p class="section-label">Method and limits</p>
+          <h2 id="method-title">Built from district building blocks</h2>
+        </div>
+        <div class="method-copy">
+          <p>Each proposed council is assembled from the current district and unitary boundaries published on planning.data.gov.uk. Several proposals move named parishes or wards between councils; those transfers are recorded in the table but not drawn, because doing so needs parish-level schedules that were sent to councils rather than published as data.</p>
+          <p><strong>Now</strong> reflects the government's 7 September withdrawal of the March decisions, and its 29 October announcement: minded-to decisions for five areas, withdrawal of the other nine July decisions, and a 1 April 2029 vesting date. <strong>As announced</strong> shows the 25 March and 16 July decisions with their April 2028 vesting date, and Surrey's October 2025 decision.</p>
+          <p>Council names are the working names used in announcements, not legal names. A minded-to decision is not final; any new councils also need parliamentary approval.</p>
+          <div class="method-links">
+            <a href="https://www.gov.uk/government/news/local-government-reorganisation-moves-forward-in-five-counties">29 Oct announcement <span aria-hidden="true">↗</span></a>
+            <a href="https://www.gov.uk/government/publications/local-government-reorganisation-programme-review-and-decisions-withdrawal-letter-to-council-leaders">7 Sep withdrawal letter <span aria-hidden="true">↗</span></a>
+            <a href="data/areas.csv" download>Download area CSV <span aria-hidden="true">↓</span></a>
+            <a href="https://github.com/mhanmore/w/tree/main/england-council-reorganisation">View source on GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="page-width footer-row">
+      <p>Local government reorganisation · England status map</p>
+      <p>Checked 2 November 2026</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,1059 @@
+[
+ {
+  "id": "surrey",
+  "area": "Surrey",
+  "status": "confirmed",
+  "status_date": "2025-10-28",
+  "status_note": "Decision 28 Oct 2025. Not part of the 2026 review.",
+  "vesting": "1 April 2027",
+  "sources": [
+   "https://www.gov.uk/government/news/local-government-reorganisation-moves-forward-in-five-counties",
+   "https://en.wikipedia.org/wiki/Upcoming_structural_changes_to_local_government_in_England"
+  ],
+  "original_status": "decided_2027",
+  "original_date": "2025-10-28",
+  "original_vesting": "1 April 2027",
+  "status_label": "Confirmed",
+  "original_label": "Decided \u2013 vesting April 2027",
+  "units": [
+   {
+    "name": "West Surrey",
+    "members": [
+     "Guildford",
+     "Runnymede",
+     "Spelthorne",
+     "Surrey Heath",
+     "Waverley",
+     "Woking"
+    ],
+    "splits": []
+   },
+   {
+    "name": "East Surrey",
+    "members": [
+     "Elmbridge",
+     "Epsom and Ewell",
+     "Mole Valley",
+     "Reigate and Banstead",
+     "Tandridge"
+    ],
+    "splits": []
+   }
+  ]
+ },
+ {
+  "id": "gloucestershire",
+  "area": "Gloucestershire",
+  "status": "minded_to",
+  "status_date": "2026-10-29",
+  "status_note": "July decision withdrawn and replaced by a minded-to decision on 29 Oct 2026; representations of at least three weeks before a final decision.",
+  "vesting": "2029 (expected)",
+  "sources": [
+   "https://www.gov.uk/government/news/local-government-reorganisation-moves-forward-in-five-counties"
+  ],
+  "original_status": "decided_2028",
+  "original_date": "2026-07-16",
+  "original_vesting": "1 April 2028",
+  "status_label": "Minded to proceed",
+  "original_label": "Decided \u2013 vesting April 2028",
+  "units": [
+   {
+    "name": "Gloucestershire",
+    "members": [
+     "Cheltenham",
+     "Cotswold",
+     "Forest of Dean",
+     "Gloucester",
+     "Stroud",
+     "Tewkesbury"
+    ],
+    "splits": []
+   }
+  ]
+ },
+ {
+  "id": "warwickshire",
+  "area": "Warwickshire",
+  "status": "minded_to",
+  "status_date": "2026-10-29",
+  "status_note": "Minded-to decision, 29 Oct 2026.",
+  "vesting": "2029 (expected)",
+  "sources": [
+   "https://www.gov.uk/government/news/local-government-reorganisation-moves-forward-in-five-counties",
+   "https://www.capsticks.com/insights/local-government-reorganisation-decisions-for-14-areas-july-update"
+  ],
+  "original_status": "decided_2028",
+  "original_date": "2026-07-16",
+  "original_vesting": "1 April 2028",
+  "status_label": "Minded to proceed",
+  "original_label": "Decided \u2013 vesting April 2028",
+  "units": [
+   {
+    "name": "North Warwickshire",
+    "members": [
+     "North Warwickshire",
+     "Nuneaton and Bedworth",
+     "Rugby"
+    ],
+    "splits": []
+   },
+   {
+    "name": "South Warwickshire",
+    "members": [
+     "Stratford-on-Avon",
+     "Warwick"
+    ],
+    "splits": []
+   }
+  ]
+ },
+ {
+  "id": "worcestershire",
+  "area": "Worcestershire",
+  "status": "minded_to",
+  "status_date": "2026-10-29",
+  "status_note": "Minded-to decision, 29 Oct 2026.",
+  "vesting": "2029 (expected)",
+  "sources": [
+   "https://www.gov.uk/government/news/local-government-reorganisation-moves-forward-in-five-counties",
+   "https://www.capsticks.com/insights/local-government-reorganisation-decisions-for-14-areas-july-update"
+  ],
+  "original_status": "decided_2028",
+  "original_date": "2026-07-16",
+  "original_vesting": "1 April 2028",
+  "status_label": "Minded to proceed",
+  "original_label": "Decided \u2013 vesting April 2028",
+  "units": [
+   {
+    "name": "North Worcestershire",
+    "members": [
+     "Bromsgrove",
+     "Redditch",
+     "Wyre Forest"
+    ],
+    "splits": []
+   },
+   {
+    "name": "South Worcestershire",
+    "members": [
+     "Malvern Hills",
+     "Worcester",
+     "Wychavon"
+    ],
+    "splits": []
+   }
+  ]
+ },
+ {
+  "id": "oxfordshire",
+  "area": "Oxfordshire and West Berkshire",
+  "status": "minded_to",
+  "status_date": "2026-10-29",
+  "status_note": "Minded-to decision, 29 Oct 2026: three unitaries with the boundary changes requested by Oxford City Council, including West Berkshire.",
+  "vesting": "2029 (expected)",
+  "sources": [
+   "https://www.gov.uk/government/news/local-government-reorganisation-moves-forward-in-five-counties",
+   "https://news.oxfordshire.gov.uk/government-confirms-three-new-unitary-councils/",
+   "https://www.capsticks.com/insights/local-government-reorganisation-decisions-for-14-areas-july-update"
+  ],
+  "original_status": "decided_2028",
+  "original_date": "2026-07-16",
+  "original_vesting": "1 April 2028",
+  "status_label": "Minded to proceed",
+  "original_label": "Decided \u2013 vesting April 2028",
+  "units": [
+   {
+    "name": "Greater Oxford",
+    "members": [
+     "Oxford"
+    ],
+    "splits": []
+   },
+   {
+    "name": "Northern Oxfordshire",
+    "members": [
+     "Cherwell",
+     "West Oxfordshire"
+    ],
+    "splits": [
+     {
+      "district": "Cherwell",
+      "note": "15 parishes to Greater Oxford"
+     }
+    ]
+   },
+   {
+    "name": "Ridgeway",
+    "members": [
+     "South Oxfordshire",
+     "Vale of White Horse",
+     "West Berkshire"
+    ],
+    "splits": [
+     {
+      "district": "South Oxfordshire",
+      "note": "25 parishes to Greater Oxford"
+     },
+     {
+      "district": "Vale of White Horse",
+      "note": "9 parishes to Greater Oxford"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "east-sussex",
+  "area": "East Sussex and Brighton and Hove",
+  "status": "minded_to",
+  "status_date": "2026-10-29",
+  "status_note": "Minded-to decision, 29 Oct 2026: Brighton and Hove boundary extension modified to exclude Falmer parish.",
+  "vesting": "2029 (expected)",
+  "sources": [
+   "https://www.gov.uk/government/news/local-government-reorganisation-moves-forward-in-five-counties",
+   "https://www.capsticks.com/insights/local-government-reorganisation-decisions-for-14-areas-july-update"
+  ],
+  "original_status": "decided_2028",
+  "original_date": "2026-07-16",
+  "original_vesting": "1 April 2028",
+  "status_label": "Minded to proceed",
+  "original_label": "Decided \u2013 vesting April 2028",
+  "units": [
+   {
+    "name": "Brighton and Hove",
+    "members": [
+     "Brighton and Hove"
+    ],
+    "splits": []
+   },
+   {
+    "name": "East Sussex",
+    "members": [
+     "Eastbourne",
+     "Hastings",
+     "Lewes",
+     "Rother",
+     "Wealden"
+    ],
+    "splits": [
+     {
+      "district": "Lewes",
+      "note": "Four wards to Brighton and Hove, excluding Falmer parish"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "derbyshire",
+  "area": "Derbyshire and Derby",
+  "status": "withdrawn",
+  "status_date": "2026-10-29",
+  "status_note": "July 2026 decision withdrawn 29 Oct 2026; all options remain under consideration.",
+  "vesting": "Under review",
+  "sources": [
+   "https://assets.publishing.service.gov.uk/media/6ae36c6ed22fc5fecb3eb7f9/Local_government_reorganisation_-_withdrawn_letter_to_9_areas.pdf",
+   "https://www.capsticks.com/insights/local-government-reorganisation-decisions-for-14-areas-july-update"
+  ],
+  "original_status": "decided_2028",
+  "original_date": "2026-07-16",
+  "original_vesting": "1 April 2028",
+  "status_label": "Decision withdrawn \u2013 under review",
+  "original_label": "Decided \u2013 vesting April 2028",
+  "units": [
+   {
+    "name": "Northern Derbyshire",
+    "members": [
+     "Bolsover",
+     "Chesterfield",
+     "Derbyshire Dales",
+     "High Peak",
+     "North East Derbyshire",
+     "Amber Valley"
+    ],
+    "splits": [
+     {
+      "district": "Amber Valley",
+      "note": "14 parishes to Southern Derbyshire"
+     }
+    ]
+   },
+   {
+    "name": "Southern Derbyshire",
+    "members": [
+     "Derby",
+     "Erewash",
+     "South Derbyshire"
+    ],
+    "splits": []
+   }
+  ]
+ },
+ {
+  "id": "devon",
+  "area": "Devon, Plymouth and Torbay",
+  "status": "withdrawn",
+  "status_date": "2026-10-29",
+  "status_note": "July 2026 decision withdrawn 29 Oct 2026.",
+  "vesting": "Under review",
+  "sources": [
+   "https://assets.publishing.service.gov.uk/media/6ae36c6ed22fc5fecb3eb7f9/Local_government_reorganisation_-_withdrawn_letter_to_9_areas.pdf",
+   "https://www.capsticks.com/insights/local-government-reorganisation-decisions-for-14-areas-july-update"
+  ],
+  "original_status": "decided_2028",
+  "original_date": "2026-07-16",
+  "original_vesting": "1 April 2028",
+  "status_label": "Decision withdrawn \u2013 under review",
+  "original_label": "Decided \u2013 vesting April 2028",
+  "units": [
+   {
+    "name": "Exeter",
+    "members": [
+     "Exeter"
+    ],
+    "splits": []
+   },
+   {
+    "name": "Plymouth",
+    "members": [
+     "Plymouth"
+    ],
+    "splits": []
+   },
+   {
+    "name": "Torbay",
+    "members": [
+     "Torbay"
+    ],
+    "splits": []
+   },
+   {
+    "name": "Devon",
+    "members": [
+     "North Devon",
+     "Torridge",
+     "West Devon",
+     "East Devon",
+     "Mid Devon",
+     "South Hams",
+     "Teignbridge"
+    ],
+    "splits": [
+     {
+      "district": "East Devon",
+      "note": "28 parishes to Exeter"
+     },
+     {
+      "district": "Mid Devon",
+      "note": "6 parishes to Exeter"
+     },
+     {
+      "district": "South Hams",
+      "note": "13 parishes to Plymouth; further parishes to Torbay"
+     },
+     {
+      "district": "Teignbridge",
+      "note": "15 parishes to Exeter; further parishes to Torbay"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "hertfordshire",
+  "area": "Hertfordshire",
+  "status": "withdrawn",
+  "status_date": "2026-10-29",
+  "status_note": "July 2026 decision withdrawn 29 Oct 2026.",
+  "vesting": "Under review",
+  "sources": [
+   "https://assets.publishing.service.gov.uk/media/6ae36c6ed22fc5fecb3eb7f9/Local_government_reorganisation_-_withdrawn_letter_to_9_areas.pdf",
+   "https://www.watford.gov.uk/news/article/1028/government-announces-four-unitary-authorities-in-hertfordshire"
+  ],
+  "original_status": "decided_2028",
+  "original_date": "2026-07-16",
+  "original_vesting": "1 April 2028",
+  "status_label": "Decision withdrawn \u2013 under review",
+  "original_label": "Decided \u2013 vesting April 2028",
+  "units": [
+   {
+    "name": "North West Hertfordshire",
+    "members": [
+     "Dacorum",
+     "St Albans"
+    ],
+    "splits": []
+   },
+   {
+    "name": "South West Hertfordshire",
+    "members": [
+     "Hertsmere",
+     "Three Rivers",
+     "Watford"
+    ],
+    "splits": []
+   },
+   {
+    "name": "Central Hertfordshire",
+    "members": [
+     "Stevenage",
+     "North Hertfordshire",
+     "Welwyn Hatfield"
+    ],
+    "splits": [
+     {
+      "district": "North Hertfordshire",
+      "note": "Royston-area wards to Eastern Hertfordshire"
+     },
+     {
+      "district": "Welwyn Hatfield",
+      "note": "Northaw and Cuffley ward to Eastern Hertfordshire"
+     }
+    ]
+   },
+   {
+    "name": "Eastern Hertfordshire",
+    "members": [
+     "Broxbourne",
+     "East Hertfordshire"
+    ],
+    "splits": []
+   }
+  ]
+ },
+ {
+  "id": "kent",
+  "area": "Kent and Medway",
+  "status": "withdrawn",
+  "status_date": "2026-10-29",
+  "status_note": "July 2026 decision withdrawn 29 Oct 2026.",
+  "vesting": "Under review",
+  "sources": [
+   "https://assets.publishing.service.gov.uk/media/6ae36c6ed22fc5fecb3eb7f9/Local_government_reorganisation_-_withdrawn_letter_to_9_areas.pdf",
+   "https://www.capsticks.com/insights/local-government-reorganisation-decisions-for-14-areas-july-update"
+  ],
+  "original_status": "decided_2028",
+  "original_date": "2026-07-16",
+  "original_vesting": "1 April 2028",
+  "status_label": "Decision withdrawn \u2013 under review",
+  "original_label": "Decided \u2013 vesting April 2028",
+  "units": [
+   {
+    "name": "North Kent",
+    "members": [
+     "Dartford",
+     "Gravesham",
+     "Medway"
+    ],
+    "splits": []
+   },
+   {
+    "name": "West Kent",
+    "members": [
+     "Maidstone",
+     "Sevenoaks",
+     "Tonbridge and Malling",
+     "Tunbridge Wells"
+    ],
+    "splits": []
+   },
+   {
+    "name": "Mid Kent",
+    "members": [
+     "Ashford",
+     "Folkestone and Hythe",
+     "Swale"
+    ],
+    "splits": []
+   },
+   {
+    "name": "East Kent",
+    "members": [
+     "Canterbury",
+     "Dover",
+     "Thanet"
+    ],
+    "splits": []
+   }
+  ]
+ },
+ {
+  "id": "lancashire",
+  "area": "Lancashire, Blackburn with Darwen and Blackpool",
+  "status": "withdrawn",
+  "status_date": "2026-10-29",
+  "status_note": "July 2026 decision withdrawn 29 Oct 2026.",
+  "vesting": "Under review",
+  "sources": [
+   "https://assets.publishing.service.gov.uk/media/6ae36c6ed22fc5fecb3eb7f9/Local_government_reorganisation_-_withdrawn_letter_to_9_areas.pdf",
+   "https://www.capsticks.com/insights/local-government-reorganisation-decisions-for-14-areas-july-update"
+  ],
+  "original_status": "decided_2028",
+  "original_date": "2026-07-16",
+  "original_vesting": "1 April 2028",
+  "status_label": "Decision withdrawn \u2013 under review",
+  "original_label": "Decided \u2013 vesting April 2028",
+  "units": [
+   {
+    "name": "North Lancashire",
+    "members": [
+     "Lancaster",
+     "Preston",
+     "Ribble Valley"
+    ],
+    "splits": []
+   },
+   {
+    "name": "South Lancashire",
+    "members": [
+     "Chorley",
+     "South Ribble",
+     "West Lancashire"
+    ],
+    "splits": []
+   },
+   {
+    "name": "Pennine Lancashire",
+    "members": [
+     "Blackburn with Darwen",
+     "Burnley",
+     "Hyndburn",
+     "Pendle",
+     "Rossendale"
+    ],
+    "splits": []
+   },
+   {
+    "name": "Fylde Coast",
+    "members": [
+     "Blackpool",
+     "Fylde",
+     "Wyre"
+    ],
+    "splits": []
+   }
+  ]
+ },
+ {
+  "id": "leicestershire",
+  "area": "Leicestershire, Leicester and Rutland",
+  "status": "withdrawn",
+  "status_date": "2026-10-29",
+  "status_note": "July 2026 decision withdrawn 29 Oct 2026.",
+  "vesting": "Under review",
+  "sources": [
+   "https://assets.publishing.service.gov.uk/media/6ae36c6ed22fc5fecb3eb7f9/Local_government_reorganisation_-_withdrawn_letter_to_9_areas.pdf",
+   "https://www.leicestershire.gov.uk/news/local-government-reorganisation-update",
+   "https://www.capsticks.com/insights/local-government-reorganisation-decisions-for-14-areas-july-update"
+  ],
+  "original_status": "decided_2028",
+  "original_date": "2026-07-16",
+  "original_vesting": "1 April 2028",
+  "status_label": "Decision withdrawn \u2013 under review",
+  "original_label": "Decided \u2013 vesting April 2028",
+  "units": [
+   {
+    "name": "Leicester",
+    "members": [
+     "Leicester",
+     "Oadby and Wigston"
+    ],
+    "splits": []
+   },
+   {
+    "name": "Leicestershire and Rutland",
+    "members": [
+     "Blaby",
+     "Charnwood",
+     "Harborough",
+     "Hinckley and Bosworth",
+     "Melton",
+     "North West Leicestershire",
+     "Rutland"
+    ],
+    "splits": [
+     {
+      "district": "Blaby",
+      "note": "16 parishes to Leicester"
+     },
+     {
+      "district": "Charnwood",
+      "note": "11 parishes to Leicester"
+     },
+     {
+      "district": "Harborough",
+      "note": "7 parishes to Leicester"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "lincolnshire",
+  "area": "Lincolnshire, North Lincolnshire and North East Lincolnshire",
+  "status": "withdrawn",
+  "status_date": "2026-10-29",
+  "status_note": "July 2026 decision withdrawn 29 Oct 2026.",
+  "vesting": "Under review",
+  "sources": [
+   "https://assets.publishing.service.gov.uk/media/6ae36c6ed22fc5fecb3eb7f9/Local_government_reorganisation_-_withdrawn_letter_to_9_areas.pdf",
+   "https://www.capsticks.com/insights/local-government-reorganisation-decisions-for-14-areas-july-update"
+  ],
+  "original_status": "decided_2028",
+  "original_date": "2026-07-16",
+  "original_vesting": "1 April 2028",
+  "status_label": "Decision withdrawn \u2013 under review",
+  "original_label": "Decided \u2013 vesting April 2028",
+  "units": [
+   {
+    "name": "Lincoln",
+    "members": [
+     "Lincoln"
+    ],
+    "splits": []
+   },
+   {
+    "name": "Lincolnshire",
+    "members": [
+     "Boston",
+     "East Lindsey",
+     "North Kesteven",
+     "South Holland",
+     "South Kesteven",
+     "West Lindsey"
+    ],
+    "splits": [
+     {
+      "district": "North Kesteven",
+      "note": "12 wards to Lincoln"
+     },
+     {
+      "district": "West Lindsey",
+      "note": "7 wards to Lincoln"
+     }
+    ]
+   },
+   {
+    "name": "North Lincolnshire (unchanged)",
+    "members": [
+     "North Lincolnshire"
+    ],
+    "splits": []
+   },
+   {
+    "name": "North East Lincolnshire (unchanged)",
+    "members": [
+     "North East Lincolnshire"
+    ],
+    "splits": []
+   }
+  ]
+ },
+ {
+  "id": "nottinghamshire",
+  "area": "Nottinghamshire and Nottingham",
+  "status": "withdrawn",
+  "status_date": "2026-10-29",
+  "status_note": "July 2026 decision withdrawn 29 Oct 2026.",
+  "vesting": "Under review",
+  "sources": [
+   "https://assets.publishing.service.gov.uk/media/6ae36c6ed22fc5fecb3eb7f9/Local_government_reorganisation_-_withdrawn_letter_to_9_areas.pdf",
+   "https://futurenotts.org.uk/news-and-updates/2026/local-government-reorganisation-decision-announcement",
+   "https://www.capsticks.com/insights/local-government-reorganisation-decisions-for-14-areas-july-update"
+  ],
+  "original_status": "decided_2028",
+  "original_date": "2026-07-16",
+  "original_vesting": "1 April 2028",
+  "status_label": "Decision withdrawn \u2013 under review",
+  "original_label": "Decided \u2013 vesting April 2028",
+  "units": [
+   {
+    "name": "Nottingham (expanded)",
+    "members": [
+     "Nottingham",
+     "Broxtowe",
+     "Gedling",
+     "Rushcliffe"
+    ],
+    "splits": [
+     {
+      "district": "Broxtowe",
+      "note": "Some wards to North and East Nottinghamshire"
+     },
+     {
+      "district": "Gedling",
+      "note": "Some wards to North and East Nottinghamshire"
+     },
+     {
+      "district": "Rushcliffe",
+      "note": "Some wards to North and East Nottinghamshire"
+     }
+    ]
+   },
+   {
+    "name": "North and East Nottinghamshire",
+    "members": [
+     "Ashfield",
+     "Bassetlaw",
+     "Mansfield",
+     "Newark and Sherwood"
+    ],
+    "splits": []
+   }
+  ]
+ },
+ {
+  "id": "staffordshire",
+  "area": "Staffordshire and Stoke-on-Trent",
+  "status": "withdrawn",
+  "status_date": "2026-10-29",
+  "status_note": "July 2026 decision withdrawn 29 Oct 2026.",
+  "vesting": "Under review",
+  "sources": [
+   "https://assets.publishing.service.gov.uk/media/6ae36c6ed22fc5fecb3eb7f9/Local_government_reorganisation_-_withdrawn_letter_to_9_areas.pdf",
+   "https://www.capsticks.com/insights/local-government-reorganisation-decisions-for-14-areas-july-update"
+  ],
+  "original_status": "decided_2028",
+  "original_date": "2026-07-16",
+  "original_vesting": "1 April 2028",
+  "status_label": "Decision withdrawn \u2013 under review",
+  "original_label": "Decided \u2013 vesting April 2028",
+  "units": [
+   {
+    "name": "North Staffordshire",
+    "members": [
+     "Newcastle-under-Lyme",
+     "Staffordshire Moorlands",
+     "Stoke-on-Trent"
+    ],
+    "splits": []
+   },
+   {
+    "name": "Southern and Mid Staffordshire",
+    "members": [
+     "Cannock Chase",
+     "East Staffordshire",
+     "Lichfield",
+     "South Staffordshire",
+     "Stafford",
+     "Tamworth"
+    ],
+    "splits": []
+   }
+  ]
+ },
+ {
+  "id": "essex",
+  "area": "Essex, Southend-on-Sea and Thurrock",
+  "status": "withdrawn",
+  "status_date": "2026-09-07",
+  "status_note": "March 2026 decision withdrawn 7 Sep 2026; under review.",
+  "vesting": "Under review",
+  "sources": [
+   "https://www.gov.uk/government/publications/local-government-reorganisation-programme-review-and-decisions-withdrawal-letter-to-council-leaders",
+   "https://www.herewise.co.uk/council-changes/essex"
+  ],
+  "original_status": "decided_2028",
+  "original_date": "2026-03-25",
+  "original_vesting": "1 April 2028",
+  "status_label": "Decision withdrawn \u2013 under review",
+  "original_label": "Decided \u2013 vesting April 2028",
+  "units": [
+   {
+    "name": "West Essex",
+    "members": [
+     "Epping Forest",
+     "Harlow",
+     "Uttlesford"
+    ],
+    "splits": []
+   },
+   {
+    "name": "North East Essex",
+    "members": [
+     "Braintree",
+     "Colchester",
+     "Tendring"
+    ],
+    "splits": []
+   },
+   {
+    "name": "Mid Essex",
+    "members": [
+     "Brentwood",
+     "Chelmsford",
+     "Maldon"
+    ],
+    "splits": []
+   },
+   {
+    "name": "South West Essex",
+    "members": [
+     "Basildon",
+     "Thurrock"
+    ],
+    "splits": []
+   },
+   {
+    "name": "South East Essex",
+    "members": [
+     "Castle Point",
+     "Rochford",
+     "Southend-on-Sea"
+    ],
+    "splits": []
+   }
+  ]
+ },
+ {
+  "id": "hampshire",
+  "area": "Hampshire, Isle of Wight, Portsmouth and Southampton",
+  "status": "withdrawn",
+  "status_date": "2026-09-07",
+  "status_note": "March 2026 decision withdrawn 7 Sep 2026; under review.",
+  "vesting": "Under review",
+  "sources": [
+   "https://www.gov.uk/government/publications/local-government-reorganisation-programme-review-and-decisions-withdrawal-letter-to-council-leaders",
+   "https://www.herewise.co.uk/council-changes/hampshire"
+  ],
+  "original_status": "decided_2028",
+  "original_date": "2026-03-25",
+  "original_vesting": "1 April 2028",
+  "status_label": "Decision withdrawn \u2013 under review",
+  "original_label": "Decided \u2013 vesting April 2028",
+  "units": [
+   {
+    "name": "North Hampshire",
+    "members": [
+     "Basingstoke and Deane",
+     "Hart",
+     "Rushmoor"
+    ],
+    "splits": []
+   },
+   {
+    "name": "Mid Hampshire",
+    "members": [
+     "East Hampshire",
+     "New Forest",
+     "Test Valley",
+     "Winchester"
+    ],
+    "splits": [
+     {
+      "district": "East Hampshire",
+      "note": "Parishes to South East Hampshire"
+     },
+     {
+      "district": "New Forest",
+      "note": "Parishes to South West Hampshire"
+     },
+     {
+      "district": "Test Valley",
+      "note": "Parishes to South West Hampshire"
+     },
+     {
+      "district": "Winchester",
+      "note": "Parish to South East Hampshire"
+     }
+    ]
+   },
+   {
+    "name": "South West Hampshire",
+    "members": [
+     "Eastleigh",
+     "Southampton"
+    ],
+    "splits": []
+   },
+   {
+    "name": "South East Hampshire",
+    "members": [
+     "Fareham",
+     "Gosport",
+     "Havant",
+     "Portsmouth"
+    ],
+    "splits": []
+   },
+   {
+    "name": "Isle of Wight (unchanged)",
+    "members": [
+     "Isle of Wight"
+    ],
+    "splits": []
+   }
+  ]
+ },
+ {
+  "id": "norfolk",
+  "area": "Norfolk",
+  "status": "withdrawn",
+  "status_date": "2026-09-07",
+  "status_note": "March 2026 decision withdrawn 7 Sep 2026; under review.",
+  "vesting": "Under review",
+  "sources": [
+   "https://www.gov.uk/government/publications/local-government-reorganisation-programme-review-and-decisions-withdrawal-letter-to-council-leaders",
+   "https://assets.publishing.service.gov.uk/media/69c3d3d0471d520038d0f59e/SoS_-_Letter_to_Norfolk_Leaders_25.03.26.pdf"
+  ],
+  "original_status": "decided_2028",
+  "original_date": "2026-03-25",
+  "original_vesting": "1 April 2028",
+  "status_label": "Decision withdrawn \u2013 under review",
+  "original_label": "Decided \u2013 vesting April 2028",
+  "units": [
+   {
+    "name": "West Norfolk",
+    "members": [
+     "Breckland",
+     "King's Lynn and West Norfolk"
+    ],
+    "splits": []
+   },
+   {
+    "name": "Greater Norwich",
+    "members": [
+     "Norwich"
+    ],
+    "splits": []
+   },
+   {
+    "name": "East Norfolk",
+    "members": [
+     "Broadland",
+     "Great Yarmouth",
+     "North Norfolk",
+     "South Norfolk"
+    ],
+    "splits": [
+     {
+      "district": "Broadland",
+      "note": "19 parishes to Greater Norwich"
+     },
+     {
+      "district": "South Norfolk",
+      "note": "16 parishes to Greater Norwich; 9 to West Norfolk"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "suffolk",
+  "area": "Suffolk",
+  "status": "withdrawn",
+  "status_date": "2026-09-07",
+  "status_note": "March 2026 decision withdrawn 7 Sep 2026; under review.",
+  "vesting": "Under review",
+  "sources": [
+   "https://www.gov.uk/government/publications/local-government-reorganisation-programme-review-and-decisions-withdrawal-letter-to-council-leaders",
+   "https://www.suffolk.gov.uk/council-and-democracy/local-government-reorganisation-in-suffolk",
+   "https://en.wikipedia.org/wiki/Upcoming_structural_changes_to_local_government_in_England"
+  ],
+  "original_status": "decided_2028",
+  "original_date": "2026-03-25",
+  "original_vesting": "1 April 2028",
+  "status_label": "Decision withdrawn \u2013 under review",
+  "original_label": "Decided \u2013 vesting April 2028",
+  "units": [
+   {
+    "name": "Western Suffolk",
+    "members": [
+     "West Suffolk",
+     "Babergh"
+    ],
+    "splits": [
+     {
+      "district": "Babergh",
+      "note": "Parishes to Ipswich and South Suffolk"
+     }
+    ]
+   },
+   {
+    "name": "Central and Eastern Suffolk",
+    "members": [
+     "East Suffolk",
+     "Mid Suffolk"
+    ],
+    "splits": [
+     {
+      "district": "East Suffolk",
+      "note": "Parishes to Ipswich and South Suffolk"
+     },
+     {
+      "district": "Mid Suffolk",
+      "note": "Parishes to Western Suffolk and to Ipswich and South Suffolk"
+     }
+    ]
+   },
+   {
+    "name": "Ipswich and South Suffolk",
+    "members": [
+     "Ipswich"
+    ],
+    "splits": []
+   }
+  ]
+ },
+ {
+  "id": "cambridgeshire",
+  "area": "Cambridgeshire and Peterborough",
+  "status": "awaiting",
+  "status_date": "",
+  "status_note": "No decision yet; competing options under consideration.",
+  "vesting": "Under review",
+  "sources": [
+   "https://assets.publishing.service.gov.uk/media/6ae36c6ed22fc5fecb3eb7f9/Local_government_reorganisation_-_withdrawn_letter_to_9_areas.pdf"
+  ],
+  "original_status": "deferred",
+  "original_date": "2026-07-16",
+  "original_vesting": "",
+  "status_label": "Awaiting decision",
+  "original_label": "Decision deferred",
+  "units": [
+   {
+    "name": "No decision",
+    "members": [
+     "Cambridge",
+     "East Cambridgeshire",
+     "Fenland",
+     "Huntingdonshire",
+     "South Cambridgeshire",
+     "Peterborough"
+    ],
+    "splits": []
+   }
+  ]
+ },
+ {
+  "id": "west-sussex",
+  "area": "West Sussex",
+  "status": "awaiting",
+  "status_date": "",
+  "status_note": "No decision yet.",
+  "vesting": "Under review",
+  "sources": [
+   "https://assets.publishing.service.gov.uk/media/6ae36c6ed22fc5fecb3eb7f9/Local_government_reorganisation_-_withdrawn_letter_to_9_areas.pdf"
+  ],
+  "original_status": "deferred",
+  "original_date": "2026-07-16",
+  "original_vesting": "",
+  "status_label": "Awaiting decision",
+  "original_label": "Decision deferred",
+  "units": [
+   {
+    "name": "No decision",
+    "members": [
+     "Adur",
+     "Arun",
+     "Chichester",
+     "Crawley",
+     "Horsham",
+     "Mid Sussex",
+     "Worthing"
+    ],
+    "splits": []
+   }
+  ]
+ }
+]
