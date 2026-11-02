@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>England and the National Scheme of Delegation</title>
+  <meta name="description" content="An authority-by-authority evidence review, in progress, of arrangements giving effect to England's National Scheme of Delegation of planning functions across all 308 local planning authorities.">
+  <meta property="og:title" content="England and the National Scheme of Delegation">
+  <meta property="og:description" content="Who has put the new planning delegation rules in place? An evidence review of all 308 English LPAs, in progress.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mhanmore.github.io/w/england-planning-delegation/">
+  <meta property="og:image" content="https://mhanmore.github.io/w/england-planning-delegation/share.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#122c36">
+  <link rel="preconnect" href="https://tiles.openfreemap.org">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="styles.css?v=20261102-1">
+  <script defer src="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.js"></script>
+  <script defer src="report.js?v=20261102-1"></script>
+</head>
+<body>
+  <a class="skip-link" href="#findings">Skip to findings</a>
+
+  <header class="masthead">
+    <div class="page-width masthead-row">
+      <a class="wordmark" href="../">Field notes</a>
+      <p>Evidence review · in progress</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="page-width hero-grid">
+        <div>
+          <p class="kicker">Planning governance · England</p>
+          <h1 id="page-title">Who has put the new delegation rules in place?</h1>
+        </div>
+        <div class="hero-copy">
+          <p class="standfirst">An authority-by-authority review, across all 308 English local planning authorities, of published arrangements giving effect to the National Scheme of Delegation of planning functions.</p>
+          <p class="byline">Work in progress · started 2 November 2026</p>
+        </div>
+      </div>
+    </section>
+
+    <aside class="audit-disclaimer" aria-label="Important research disclaimer">
+      <div class="page-width disclaimer-grid">
+        <p class="disclaimer-label">Important limitation</p>
+        <p><strong>This report is based solely on an AI-only audit of local authority websites and published meeting records.</strong> No local authority was contacted to confirm the findings, and the results have not been independently verified. They should not be treated as legal advice or as a definitive statement of any authority’s constitutional position. Most authorities have not yet been researched.</p>
+      </div>
+    </aside>
+
+    <section class="scoreboard" id="findings" aria-labelledby="findings-title">
+      <div class="page-width">
+        <p class="section-label" id="findings-title">The finding</p>
+        <div class="score-grid">
+          <div class="big-number">
+            <strong>TBC</strong>
+            <p>local planning authorities with published evidence of adoption</p>
+          </div>
+          <div class="stat-notes">
+            <p><strong>TBC</strong> adoption evidenced</p>
+            <p><strong>TBC</strong> with a published implementation trail</p>
+            <p><strong>TBC</strong> of evidenced adoptions occurred in September or October</p>
+          </div>
+          <div class="exception-note">
+            <p class="eyebrow">Exceptions</p>
+            <p>TBC. Authorities still awaiting a recorded outcome will be summarised here once the review is complete.</p>
+          </div>
+        </div>
+        <p class="census-note">This will be a review of all 308 current English local planning authorities — councils, National Park authorities, the Broads Authority and development corporations — not a sample. Progress: <strong id="progress-count">loading…</strong></p>
+      </div>
+    </section>
+
+    <section class="map-section" aria-labelledby="map-title">
+      <div class="page-width map-heading">
+        <div>
+          <p class="section-label">The geography</p>
+          <h2 id="map-title">Published position by authority</h2>
+        </div>
+        <p>Select an authority for its evidence record. Cross-hatched authorities have not been researched yet.</p>
+      </div>
+      <div class="page-width map-layout">
+        <div class="map-shell">
+          <div id="map" role="region" aria-label="Interactive map of National Scheme of Delegation status across English local planning authorities"></div>
+          <div class="map-message" id="map-message" hidden>The interactive basemap could not load. The evidence table below remains available.</div>
+          <noscript><div class="map-message">JavaScript is needed for the interactive map. The evidence table below contains the same authority data.</div></noscript>
+        </div>
+        <div class="legend" aria-label="Map filters">
+          <div id="legend-items"></div>
+          <p class="map-credit">Boundaries: <a href="https://www.planning.data.gov.uk/dataset/local-planning-authority">planning.data.gov.uk</a> (ONS), OGL v3; contains OS data © Crown copyright 2026. Basemap: <a href="https://openfreemap.org/">OpenFreeMap</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="evidence-section" id="evidence" aria-labelledby="evidence-title">
+      <div class="page-width">
+        <div class="evidence-heading">
+          <div>
+            <p class="section-label">The evidence</p>
+            <h2 id="evidence-title">All 308 English LPAs</h2>
+          </div>
+          <label class="search-label" for="authority-search">
+            <span>Find an authority</span>
+            <input id="authority-search" type="search" placeholder="e.g. Cornwall" autocomplete="off">
+          </label>
+        </div>
+        <p id="result-count" class="result-count" aria-live="polite">Loading authority records…</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Authority</th>
+                <th scope="col">Published position</th>
+                <th scope="col">Date</th>
+                <th scope="col">Confidence</th>
+                <th scope="col">Evidence</th>
+              </tr>
+            </thead>
+            <tbody id="authority-rows"></tbody>
+          </table>
+        </div>
+        <button id="show-more" class="show-more" type="button" hidden>Show all authorities</button>
+        <div id="data-error" class="data-error" hidden>The detailed records could not be loaded. Download the source CSV below instead.</div>
+      </div>
+    </section>
+
+    <section class="method-section" aria-labelledby="method-title">
+      <div class="page-width method-grid">
+        <div>
+          <p class="section-label">Method and limits</p>
+          <h2 id="method-title">A documentary test, not a legal opinion</h2>
+        </div>
+        <div class="method-copy">
+          <p><strong>This is an AI-only audit of material published on local authority websites.</strong> No authority was contacted and no finding has been independently verified. An authority is marked <strong>adopted</strong> where a council decision, minutes, current constitutional material or comparably strong operational evidence supports adoption. An agenda or recommendation alone is not treated as a completed adoption.</p>
+          <p>Authorities are being researched from south to north. Each record carries a confidence rating and links back to the underlying evidence. “No published evidence found” means a search was made and nothing relevant was located; it is not a finding that the authority has not adopted the scheme.</p>
+          <p>The National Scheme took effect on 31 October 2026. The government’s guidance says authorities should align their constitutions and delegation arrangements with it. London’s 33 authorities are covered in more depth in the <a href="../london-planning-delegation/">London review</a>.</p>
+          <div class="method-links">
+            <a href="https://www.gov.uk/government/publications/planning-committees-and-the-national-scheme-of-delegation-of-planning-functions-guidance-for-local-planning-authorities-in-england/planning-committees-and-the-national-scheme-of-delegation-of-planning-functions-guidance-for-local-planning-authorities-in-england">Government guidance <span aria-hidden="true">↗</span></a>
+            <a href="data/authorities.csv" download>Download report CSV <span aria-hidden="true">↓</span></a>
+            <a href="../london-planning-delegation/">London review <span aria-hidden="true">→</span></a>
+            <a href="https://github.com/mhanmore/w/tree/main/england-planning-delegation">View source on GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="page-width footer-row">
+      <p>National Scheme of Delegation · England evidence review</p>
+      <p id="footer-checked">Work in progress</p>
+    </div>
+  </footer>
+</body>
+</html>
