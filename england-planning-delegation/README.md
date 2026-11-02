@@ -14,6 +14,8 @@ Statuses: `adopted`, `implementation_confirmed_formal_resolution_not_located`, `
 
 The summary figures in the page are deliberately "TBC" until the review is complete.
 
+The bounded six-authority resolution pilot, including resource allocation, access barriers and reproducible visible token counts, is recorded in [`research/pilot-2026-11-02.md`](research/pilot-2026-11-02.md).
+
 ## Rebuild
 
 ```sh
