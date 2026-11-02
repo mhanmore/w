@@ -31,6 +31,28 @@ STATUS_LABELS = {
     ),
     "pending_formal_adoption": "Formal adoption pending",
     "scheduled_outcome_unconfirmed": "Outcome not yet confirmed",
+    "not_assessed_supplementary": "Supplementary; implementation not confirmed",
+}
+
+CITY_RESEARCH = {
+    "id": "city-of-london-corporation",
+    "borough": "City of London Corporation",
+    "official_site": "https://www.cityoflondon.gov.uk/",
+    "status": "not_assessed_supplementary",
+    "adopted": "",
+    "decision_or_evidence_date": "",
+    "confidence": "low",
+    "evidence_type": "official_consultation_report",
+    "evidence_summary": (
+        "The City is not a London borough. Consultation-stage material was located, "
+        "but no 2026 implementation decision was confirmed in this AI-only review."
+    ),
+    "primary_source": (
+        "https://democracy.cityoflondon.gov.uk/documents/s213937/"
+        "Committee%20report%20-%20Modernising%20Planning%20Committees.pdf"
+    ),
+    "secondary_source": "",
+    "checked_at": "2026-11-02",
 }
 
 
@@ -138,12 +160,16 @@ def main() -> None:
     for feature in source["features"]:
         datastore_name = feature["properties"]["name"]
         if datastore_name == "City of London":
-            continue
-        research_name = NAME_ALIASES.get(datastore_name, datastore_name)
-        row = research.get(research_name)
-        if not row:
-            raise ValueError(f"No research row matched Datastore borough {datastore_name!r}")
-        matched.add(research_name)
+            research_name = CITY_RESEARCH["borough"]
+            row = CITY_RESEARCH
+            excluded_from_denominator = True
+        else:
+            research_name = NAME_ALIASES.get(datastore_name, datastore_name)
+            row = research.get(research_name)
+            if not row:
+                raise ValueError(f"No research row matched Datastore borough {datastore_name!r}")
+            matched.add(research_name)
+            excluded_from_denominator = False
         properties = {
             "id": row["id"],
             "name": research_name,
@@ -163,6 +189,7 @@ def main() -> None:
             "primary_source": row["primary_source"],
             "secondary_source": row["secondary_source"],
             "checked_at": row["checked_at"],
+            "excluded_from_borough_denominator": excluded_from_denominator,
         }
         features.append(
             {
@@ -173,13 +200,13 @@ def main() -> None:
         )
 
     missing = set(research) - matched
-    if missing or len(features) != 32:
+    if missing or len(features) != 33:
         raise ValueError(f"Boundary join incomplete: {len(features)} features; missing {missing}")
 
     features.sort(key=lambda item: item["properties"]["name"])
     collection = {
         "type": "FeatureCollection",
-        "name": "London borough National Scheme of Delegation status",
+        "name": "London local authority National Scheme of Delegation status",
         "source": "London Datastore London Boroughs layer",
         "source_url": "https://data.london.gov.uk/dataset/london-boroughs-e55pw",
         "licence": "Open Government Licence v3.0",
@@ -191,8 +218,21 @@ def main() -> None:
     )
     shutil.copy2(args.research_csv, args.output / "boroughs.csv")
     shutil.copy2(args.knowledge_graph, args.output / "knowledge-graph.jsonld")
+    report_fields = [
+        "id", "name", "gss_code", "status", "status_label", "adopted", "date",
+        "confidence", "evidence_type", "evidence_summary", "official_site",
+        "primary_source", "secondary_source", "checked_at",
+        "excluded_from_borough_denominator",
+    ]
+    with (args.output / "authorities.csv").open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=report_fields)
+        writer.writeheader()
+        writer.writerows(
+            {field: feature["properties"].get(field, "") for field in report_fields}
+            for feature in features
+        )
 
-    print(f"Wrote {len(features)} boroughs to {geojson_path}")
+    print(f"Wrote {len(features)} mapped authorities to {geojson_path}")
     print(f"GeoJSON size: {geojson_path.stat().st_size / 1024:.1f} KiB")
 
 

@@ -5,13 +5,15 @@
     adopted: 'adopted',
     implementation_confirmed_formal_resolution_not_located: 'implemented',
     pending_formal_adoption: 'pending',
-    scheduled_outcome_unconfirmed: 'unconfirmed'
+    scheduled_outcome_unconfirmed: 'unconfirmed',
+    not_assessed_supplementary: 'supplementary'
   };
   const STATUS_COLOURS = {
     adopted: '#287668',
     implementation_confirmed_formal_resolution_not_located: '#d79a2b',
     pending_formal_adoption: '#cf5b43',
-    scheduled_outcome_unconfirmed: '#75559a'
+    scheduled_outcome_unconfirmed: '#75559a',
+    not_assessed_supplementary: '#566a73'
   };
 
   const rowsNode = document.querySelector('#borough-rows');
@@ -77,7 +79,7 @@
           </details>
         </td>
       </tr>`).join('');
-    resultCount.textContent = `Showing ${features.length} of 32 boroughs`;
+    resultCount.textContent = `Showing ${features.length} of 33 mapped authorities`;
   };
 
   const findFeature = (id) => collection?.features.find(({ properties }) => properties.id === id);
@@ -141,6 +143,7 @@
       map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
       map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
       map.on('load', () => {
+        mapMessage.hidden = true;
         map.addSource('boroughs', { type: 'geojson', data: collection, promoteId: 'id' });
         map.addLayer({
           id: 'borough-fill',
@@ -152,6 +155,7 @@
               'implementation_confirmed_formal_resolution_not_located', STATUS_COLOURS.implementation_confirmed_formal_resolution_not_located,
               'pending_formal_adoption', STATUS_COLOURS.pending_formal_adoption,
               'scheduled_outcome_unconfirmed', STATUS_COLOURS.scheduled_outcome_unconfirmed,
+              'not_assessed_supplementary', STATUS_COLOURS.not_assessed_supplementary,
               '#78878a'
             ],
             'fill-opacity': ['case', ['boolean', ['feature-state', 'hover'], false], .92, .73]
@@ -180,9 +184,6 @@
           const feature = findFeature(event.features[0].properties.id);
           if (feature) showFeatureOnMap(feature);
         });
-      });
-      map.on('error', (event) => {
-        if (!map.loaded() && event?.error) mapMessage.hidden = false;
       });
     } catch (_) {
       mapMessage.hidden = false;

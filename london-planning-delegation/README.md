@@ -7,14 +7,16 @@ Published path: `https://mhanmore.github.io/w/london-planning-delegation/`
 
 ## Data
 
-- `data/boroughs.csv` is the 32-borough research table.
+- `data/boroughs.csv` is the underlying 32-borough research table.
+- `data/authorities.csv` is the mapped report table, including the City.
 - `data/knowledge-graph.jsonld` is the reusable linked-data version.
 - `data/boroughs.geojson` joins that research to the official London Datastore
-  borough layer and is simplified for browser delivery.
+  borough layer, includes the City polygon, and is simplified for browser delivery.
 
-The City of London is excluded because the report denominator is the 32 London
-boroughs. Boundary data is supplied by the Greater London Authority under the
-Open Government Licence v3.0.
+The City of London is mapped as a separately labelled supplementary authority,
+but is excluded from the report denominator because it is not a London borough.
+Boundary data is supplied by the Greater London Authority under the Open
+Government Licence v3.0.
 
 ## Refreshing the map data
 
@@ -27,7 +29,7 @@ python3 scripts/build-data.py \
 ```
 
 The script uses only the Python standard library. It downloads the current
-London Datastore ArcGIS layer, verifies a complete 32-row name join, simplifies
+London Datastore ArcGIS layer, verifies a complete 33-area map join, simplifies
 the geometry, and copies the source CSV and JSON-LD into `data/`.
 
 ## Stack
