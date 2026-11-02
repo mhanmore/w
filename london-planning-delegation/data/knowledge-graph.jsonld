@@ -1,0 +1,2152 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "dct": "http://purl.org/dc/terms/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "nsd": "https://example.org/london-nsd/vocab/",
+    "borough": "https://example.org/london-nsd/borough/",
+    "authority": "https://example.org/london-nsd/authority/",
+    "assertion": "https://example.org/london-nsd/assertion/",
+    "evidence": "https://example.org/london-nsd/evidence/",
+    "legislation": "https://www.legislation.gov.uk/",
+    "govuk": "https://www.gov.uk/government/publications/"
+  },
+  "@graph": [
+    {
+      "@id": "nsd:NationalSchemeOfDelegation2026",
+      "@type": "nsd:NationalDelegationScheme",
+      "schema:name": "National Scheme of Delegation of Planning Functions",
+      "schema:startDate": {
+        "@value": "2026-10-31",
+        "@type": "xsd:date"
+      },
+      "nsd:legalBasis": {
+        "@id": "legislation:uksi/2026/854"
+      },
+      "nsd:guidance": {
+        "@id": "govuk:planning-committees-nsd-guidance"
+      }
+    },
+    {
+      "@id": "legislation:uksi/2026/854",
+      "@type": "schema:Legislation",
+      "schema:name": "Town and Country Planning (Discharge of Local Planning Authority Functions) (England) Regulations 2026",
+      "schema:legislationIdentifier": "SI 2026/854",
+      "schema:url": {
+        "@id": "https://www.legislation.gov.uk/uksi/2026/854/contents/made"
+      }
+    },
+    {
+      "@id": "govuk:planning-committees-nsd-guidance",
+      "@type": "schema:DigitalDocument",
+      "schema:name": "Planning Committees and the National Scheme of Delegation of Planning Functions: Guidance for local planning authorities in England",
+      "schema:datePublished": {
+        "@value": "2026-06-01",
+        "@type": "xsd:date"
+      },
+      "schema:url": {
+        "@id": "https://www.gov.uk/government/publications/planning-committees-and-the-national-scheme-of-delegation-of-planning-functions-guidance-for-local-planning-authorities-in-england/planning-committees-and-the-national-scheme-of-delegation-of-planning-functions-guidance-for-local-planning-authorities-in-england"
+      }
+    },
+    {
+      "@id": "evidence:barking-and-dagenham-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://lbbd.moderngov.co.uk/documents/s184324/NSD%20and%20Constitution%20report.pdf"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:barking-and-dagenham",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Barking and Dagenham",
+      "schema:url": {
+        "@id": "https://www.lbbd.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:barking-and-dagenham-implementation"
+      }
+    },
+    {
+      "@id": "assertion:barking-and-dagenham-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:barking-and-dagenham"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "pending_formal_adoption",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_report",
+      "schema:description": "Planning Committee report says arrangements were being implemented but formal constitutional changes would be considered by Assembly in November.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:barking-and-dagenham-primary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-14",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": false
+    },
+    {
+      "@id": "evidence:barnet-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://barnet.moderngov.co.uk/mgAi.aspx?ID=49813"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:barnet",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Barnet",
+      "schema:url": {
+        "@id": "https://www.barnet.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:barnet-implementation"
+      }
+    },
+    {
+      "@id": "assertion:barnet-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:barnet"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "medium",
+      "nsd:evidenceType": "official_full_council_item",
+      "schema:description": "Full Council considered the Monitoring Officer's constitutional amendments, including committee terms, officer delegations, planning code and Planning Scheme of Management.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:barnet-primary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-20",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:bexley-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://www.bexley.gov.uk/about-council/democracy-and-elections/council-meetings-and-decision-making/decisions-bexley"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:bexley-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://tenfell.com/explore/buyers/3279/london-borough-of-bexley"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:bexley",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Bexley",
+      "schema:url": {
+        "@id": "https://www.bexley.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:bexley-implementation"
+      }
+    },
+    {
+      "@id": "assertion:bexley-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:bexley"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "pending_formal_adoption",
+      "nsd:confidence": "medium",
+      "nsd:evidenceType": "official_meeting_listing",
+      "schema:description": "The scheme of delegation and Planning Committee terms of reference were listed for Council on 4 November, after commencement; no earlier adoption decision was located.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:bexley-primary"
+        },
+        {
+          "@id": "evidence:bexley-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-11-04",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": false
+    },
+    {
+      "@id": "evidence:brent-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://democracy.brent.gov.uk/"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:brent-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://opencouncil.network/meetings/175064"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:brent",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Brent",
+      "schema:url": {
+        "@id": "https://www.brent.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:brent-implementation"
+      }
+    },
+    {
+      "@id": "assertion:brent-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:brent"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "medium",
+      "nsd:evidenceType": "full_council_record",
+      "schema:description": "Extraordinary Full Council considered and approved constitutional and Planning Committee terms-of-reference changes for the NSD.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:brent-primary"
+        },
+        {
+          "@id": "evidence:brent-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-12",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:bromley-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://www.bromley.gov.uk/"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:bromley-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://bromleyonline.co.uk/bromley-full-council-12-october-2026/"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:bromley",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Bromley",
+      "schema:url": {
+        "@id": "https://www.bromley.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:bromley-implementation"
+      }
+    },
+    {
+      "@id": "assertion:bromley-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:bromley"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "medium",
+      "nsd:evidenceType": "full_council_and_operational_evidence",
+      "schema:description": "Council retained three planning bodies with reduced membership until May 2027 and introduced the statutory gateway arrangements from 31 October.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:bromley-primary"
+        },
+        {
+          "@id": "evidence:bromley-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-12",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:camden-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://democracy.camden.gov.uk/ieListDocuments.aspx?CId=149&MeetingId=11389"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:camden-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://www.camden.gov.uk/deciding-outcome-of-planning-application"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:camden",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Camden",
+      "schema:url": {
+        "@id": "https://www.camden.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:camden-implementation"
+      }
+    },
+    {
+      "@id": "assertion:camden-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:camden"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_minutes",
+      "schema:description": "Full Council resolved to approve constitutional amendments aligning Camden with the NSD.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:camden-primary"
+        },
+        {
+          "@id": "evidence:camden-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-07-13",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:croydon-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://democracy.croydon.gov.uk/ieListDocuments.aspx?MId=4515"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:croydon-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://democracy.croydon.gov.uk/ieListDocuments.aspx?CId=480&MID=4522"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:croydon",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Croydon",
+      "schema:url": {
+        "@id": "https://www.croydon.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:croydon-implementation"
+      }
+    },
+    {
+      "@id": "assertion:croydon-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:croydon"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_full_council_item",
+      "schema:description": "Full Council received the General Purposes Committee recommendations and amended Parts 3, 4K and 5D for the NSD.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:croydon-primary"
+        },
+        {
+          "@id": "evidence:croydon-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-21",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:ealing-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://www.ealing.gov.uk/"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:ealing-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://londonlocal.news/topic/17108-assistant-director-of-planning-design-and-sustainability-eal"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:ealing",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Ealing",
+      "schema:url": {
+        "@id": "https://www.ealing.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:ealing-implementation"
+      }
+    },
+    {
+      "@id": "assertion:ealing-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:ealing"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "medium",
+      "nsd:evidenceType": "council_meeting_record",
+      "schema:description": "Council adopted new planning decision rules and a Planning Committee Gateway Protocol.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:ealing-primary"
+        },
+        {
+          "@id": "evidence:ealing-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-13",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:enfield-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://governance.enfield.gov.uk/ieListDocuments.aspx?CId=108&MId=15705"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:enfield",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Enfield",
+      "schema:url": {
+        "@id": "https://www.enfield.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:enfield-implementation"
+      }
+    },
+    {
+      "@id": "assertion:enfield-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:enfield"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_full_council_record",
+      "schema:description": "Council approved constitutional changes, revised Planning Committee terms, referral protocol, planning code and gateway request form.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:enfield-primary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-09-16",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:greenwich-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://committees.royalgreenwich.gov.uk/ieListDocuments.aspx?CId=149&MId=2806"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:greenwich",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Royal Borough of Greenwich",
+      "schema:url": {
+        "@id": "https://www.royalgreenwich.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:greenwich-implementation"
+      }
+    },
+    {
+      "@id": "assertion:greenwich-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:greenwich"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_minutes",
+      "schema:description": "Council approved changes to the Constitution for the NSD.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:greenwich-primary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-09-23",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:hackney-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://hackney.moderngov.co.uk/ieDecisionDetails.aspx?ID=9218"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:hackney",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Hackney",
+      "schema:url": {
+        "@id": "https://hackney.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:hackney-implementation"
+      }
+    },
+    {
+      "@id": "assertion:hackney-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:hackney"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_decision",
+      "schema:description": "Full Council adopted new Planning Committee terms of reference effective 31 October and delegated consequential amendments to the Monitoring Officer.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:hackney-primary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-09-23",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:hammersmith-and-fulham-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://democracy.lbhf.gov.uk/mgAi.aspx?ID=73968"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:hammersmith-and-fulham",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Hammersmith and Fulham",
+      "schema:url": {
+        "@id": "https://www.lbhf.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:hammersmith-and-fulham-implementation"
+      }
+    },
+    {
+      "@id": "assertion:hammersmith-and-fulham-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:hammersmith-and-fulham"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "medium",
+      "nsd:evidenceType": "official_full_council_item",
+      "schema:description": "Full Council's constitution review included and approved the NSD appendix and associated officer-responsibility changes.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:hammersmith-and-fulham-primary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-21",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:haringey-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://www.minutes.haringey.gov.uk/"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:haringey-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://opencouncil.network/councils/haringey"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:haringey",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Haringey",
+      "schema:url": {
+        "@id": "https://www.haringey.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:haringey-implementation"
+      }
+    },
+    {
+      "@id": "assertion:haringey-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:haringey"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "medium",
+      "nsd:evidenceType": "official_full_council_item",
+      "schema:description": "Full Council considered constitutional changes implementing the NSD before commencement.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:haringey-primary"
+        },
+        {
+          "@id": "evidence:haringey-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-12",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:harrow-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://www.harrow.gov.uk/"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:harrow-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://londonlocal.news/stories/10367"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:harrow",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Harrow",
+      "schema:url": {
+        "@id": "https://www.harrow.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:harrow-implementation"
+      }
+    },
+    {
+      "@id": "assertion:harrow-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:harrow"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "medium",
+      "nsd:evidenceType": "full_council_record",
+      "schema:description": "Council approved constitutional and planning-procedure updates aligned with the NSD.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:harrow-primary"
+        },
+        {
+          "@id": "evidence:harrow-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-01",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:havering-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://democracy.havering.gov.uk/ieDecisionDetails.aspx?ID=9654"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:havering-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://www.havering.gov.uk/news/article/1821/havering-council-to-update-planning-committees-and-constitution-in-line-with-national-reforms"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:havering",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Havering",
+      "schema:url": {
+        "@id": "https://www.havering.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:havering-implementation"
+      }
+    },
+    {
+      "@id": "assertion:havering-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:havering"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_decision_and_news",
+      "schema:description": "Full Council approved constitutional amendments and a replacement Planning Committee; the council published confirmation.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:havering-primary"
+        },
+        {
+          "@id": "evidence:havering-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-09-02",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:hillingdon-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://modgov.hillingdon.gov.uk/"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:hillingdon-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://councilmonitor.co.uk/council/hillingdon/meeting/2026-09-24-council/item/27"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:hillingdon",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Hillingdon",
+      "schema:url": {
+        "@id": "https://www.hillingdon.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:hillingdon-implementation"
+      }
+    },
+    {
+      "@id": "assertion:hillingdon-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:hillingdon"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_council_record",
+      "schema:description": "Council approved an updated Chapter 7 on Planning Decisions, effective 31 October.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:hillingdon-primary"
+        },
+        {
+          "@id": "evidence:hillingdon-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-09-24",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:hounslow-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://www.hounslow.gov.uk/planningnotces"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:hounslow-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://opengovernment.network/meetings/176205"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:hounslow",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Hounslow",
+      "schema:url": {
+        "@id": "https://www.hounslow.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:hounslow-implementation"
+      }
+    },
+    {
+      "@id": "assertion:hounslow-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:hounslow"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_operational_page_and_minutes",
+      "schema:description": "Special Council approved revised Planning Committee terms, nominated roles and consequential constitutional amendments.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:hounslow-primary"
+        },
+        {
+          "@id": "evidence:hounslow-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-21",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:islington-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://democracy.islington.gov.uk/ieListDocuments.aspx?CId=134&MId=5425&Ver=4"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:islington-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://democracy.islington.gov.uk/documents/b20048/Second%20Despatch%20-%20Constitution%20Report%20and%20Motion%20Amendment%2024th-Sep-2026%2019.00%20Council.pdf?T=9"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:islington",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Islington",
+      "schema:url": {
+        "@id": "https://www.islington.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:islington-implementation"
+      }
+    },
+    {
+      "@id": "assertion:islington-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:islington"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_full_council_record",
+      "schema:description": "Council approved constitutional amendments effective 31 October and disbanded the Planning Sub-Committees.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:islington-primary"
+        },
+        {
+          "@id": "evidence:islington-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-09-24",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:kensington-and-chelsea-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://rbkc.moderngov.co.uk/"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:kensington-and-chelsea-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://opencouncil.network/meetings/167274"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:kensington-and-chelsea",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Kensington and Chelsea",
+      "schema:url": {
+        "@id": "https://www.rbkc.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:kensington-and-chelsea-implementation"
+      }
+    },
+    {
+      "@id": "assertion:kensington-and-chelsea-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:kensington-and-chelsea"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "medium",
+      "nsd:evidenceType": "full_council_record",
+      "schema:description": "Full Council adopted planning procedure changes for the NSD, including revised committee arrangements and nominated roles.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:kensington-and-chelsea-primary"
+        },
+        {
+          "@id": "evidence:kensington-and-chelsea-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-21",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:kingston-upon-thames-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://committee-services.kingston.gov.uk/ieIssueDetails.aspx?IId=55830&Opt=3"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:kingston-upon-thames",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Kingston upon Thames",
+      "schema:url": {
+        "@id": "https://www.kingston.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:kingston-upon-thames-implementation"
+      }
+    },
+    {
+      "@id": "assertion:kingston-upon-thames-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:kingston-upon-thames"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_full_council_item",
+      "schema:description": "Council considered and approved the Corporate and Resources Committee recommendation to amend the Constitution for the 2026 Regulations.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:kingston-upon-thames-primary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-13",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:lambeth-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://www.lambeth.gov.uk/"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:lambeth-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://opencouncil.network/meetings/166527"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:lambeth",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Lambeth",
+      "schema:url": {
+        "@id": "https://www.lambeth.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:lambeth-implementation"
+      }
+    },
+    {
+      "@id": "assertion:lambeth-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:lambeth"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "medium",
+      "nsd:evidenceType": "full_council_record",
+      "schema:description": "Council approved 2026/27 constitutional changes including the NSD and gateway arrangements.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:lambeth-primary"
+        },
+        {
+          "@id": "evidence:lambeth-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-14",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:lewisham-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://councilmeetings.lewisham.gov.uk/mgDecisionDetails.aspx?IId=51225&Opt=1"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:lewisham-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://lewisham.gov.uk/myservices/planning/apply-for-planning-permission/application-process/national-scheme-of-delegation"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:lewisham",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Lewisham",
+      "schema:url": {
+        "@id": "https://lewisham.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:lewisham-implementation"
+      }
+    },
+    {
+      "@id": "assertion:lewisham-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:lewisham"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_decision_and_operational_page",
+      "schema:description": "Council resolved to replace local referral thresholds with the national schedules and gateway test, nominate roles, and amend the Constitution.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:lewisham-primary"
+        },
+        {
+          "@id": "evidence:lewisham-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-09-28",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:merton-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://democracy.merton.gov.uk/ieListDocuments.aspx?CId=155&MId=4898"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:merton-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://londonlocal.news/stories/10940"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:merton",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Merton",
+      "schema:url": {
+        "@id": "https://www.merton.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:merton-implementation"
+      }
+    },
+    {
+      "@id": "assertion:merton-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:merton"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_committee_record",
+      "schema:description": "The Development and Planning Applications Committee approved the new delegation and gateway arrangements.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:merton-primary"
+        },
+        {
+          "@id": "evidence:merton-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-22",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:newham-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://mgov.newham.gov.uk/"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:newham-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://councilmonitor.co.uk/council/newham/meeting/2026-11-02-council"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:newham",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Newham",
+      "schema:url": {
+        "@id": "https://www.newham.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:newham-implementation"
+      }
+    },
+    {
+      "@id": "assertion:newham-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:newham"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "scheduled_outcome_unconfirmed",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_agenda",
+      "schema:description": "Constitution updates and planning reforms were on the Full Council agenda on the snapshot date; no published outcome was available when checked.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:newham-primary"
+        },
+        {
+          "@id": "evidence:newham-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": false
+    },
+    {
+      "@id": "evidence:redbridge-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://www.redbridge.gov.uk/about-the-council/public-meetings-and-scrutiny/full-council-meeting/"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:redbridge-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://opencouncil.network/councils/redbridge"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:redbridge",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Redbridge",
+      "schema:url": {
+        "@id": "https://www.redbridge.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:redbridge-implementation"
+      }
+    },
+    {
+      "@id": "assertion:redbridge-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:redbridge"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "medium",
+      "nsd:evidenceType": "full_council_record",
+      "schema:description": "Full Council considered the revised Constitution and planning committee reforms for implementation from 31 October.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:redbridge-primary"
+        },
+        {
+          "@id": "evidence:redbridge-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-09-24",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:richmond-upon-thames-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://www.richmond.gov.uk/news/news_october_2026/planning_overhaul_risks_weakening_local_democracy"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:richmond-upon-thames",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Richmond upon Thames",
+      "schema:url": {
+        "@id": "https://www.richmond.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:richmond-upon-thames-implementation"
+      }
+    },
+    {
+      "@id": "assertion:richmond-upon-thames-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:richmond-upon-thames"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "implementation_confirmed_formal_resolution_not_located",
+      "nsd:confidence": "medium",
+      "nsd:evidenceType": "official_news_and_operational_evidence",
+      "schema:description": "The council publicly described implementation and the loss of local call-in from 31 October, but a formal constitutional adoption resolution was not located.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:richmond-upon-thames-primary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-07",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "evidence:southwark-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://moderngov.southwark.gov.uk/"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:southwark-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://www.dulwichtoday.co.uk/dulwich-leisure-centre-heat-pumps-committee/"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:southwark",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Southwark",
+      "schema:url": {
+        "@id": "https://www.southwark.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:southwark-implementation"
+      }
+    },
+    {
+      "@id": "assertion:southwark-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:southwark"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "medium",
+      "nsd:evidenceType": "official_operational_committee_evidence",
+      "schema:description": "Post-commencement committee papers show the nominated officer/member gateway operating under the NSD.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:southwark-primary"
+        },
+        {
+          "@id": "evidence:southwark-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-31",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:sutton-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://moderngov.sutton.gov.uk/ieListDocuments.aspx?MId=6315"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:sutton",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Sutton",
+      "schema:url": {
+        "@id": "https://www.sutton.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:sutton-implementation"
+      }
+    },
+    {
+      "@id": "assertion:sutton-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:sutton"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "medium",
+      "nsd:evidenceType": "official_full_council_item",
+      "schema:description": "Full Council considered the Strategy and Resources Committee recommendation and constitutional planning reforms.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:sutton-primary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-19",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:tower-hamlets-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://democracy.towerhamlets.gov.uk/mgIssueHistoryHome.aspx?IId=172176"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:tower-hamlets-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://towerhamlets.public-i.tv/core/portal/webcast_interactive/1117268"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:tower-hamlets",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Tower Hamlets",
+      "schema:url": {
+        "@id": "https://www.towerhamlets.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:tower-hamlets-implementation"
+      }
+    },
+    {
+      "@id": "assertion:tower-hamlets-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:tower-hamlets"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_full_council_record",
+      "schema:description": "Full Council approved reforms to both planning committees, terms of reference and the statutory gateway arrangements.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:tower-hamlets-primary"
+        },
+        {
+          "@id": "evidence:tower-hamlets-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-07",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:waltham-forest-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://www.civico.net/walthamforest/"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:waltham-forest-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://londonlocal.news/stories/8670"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:waltham-forest",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Waltham Forest",
+      "schema:url": {
+        "@id": "https://www.walthamforest.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:waltham-forest-implementation"
+      }
+    },
+    {
+      "@id": "assertion:waltham-forest-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:waltham-forest"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "medium",
+      "nsd:evidenceType": "full_council_record",
+      "schema:description": "Full Council adopted revised Planning Committee rules aligned to the 2026 Regulations.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:waltham-forest-primary"
+        },
+        {
+          "@id": "evidence:waltham-forest-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-07-16",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:wandsworth-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://www.wandsworth.gov.uk/news/news-october-2026/new-national-planning-decision-rules-start-this-month/"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:wandsworth",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Wandsworth",
+      "schema:url": {
+        "@id": "https://www.wandsworth.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:wandsworth-implementation"
+      }
+    },
+    {
+      "@id": "assertion:wandsworth-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:wandsworth"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_news",
+      "schema:description": "Council confirmed that Full Council changed the Constitution on 21 October, effective for decisions from 1 November.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:wandsworth-primary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-10-21",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "evidence:westminster-primary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://westminster.moderngov.co.uk/ieDecisionDetails.aspx?ID=3575"
+      },
+      "nsd:evidenceRole": "primary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "evidence:westminster-secondary",
+      "@type": "schema:WebPage",
+      "schema:url": {
+        "@id": "https://www.westminster.gov.uk/planning-building-control-and-environmental-regulations/planning-applications/make-application/making-planning-application/when-you-will-get-decision"
+      },
+      "nsd:evidenceRole": "secondary",
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "borough:westminster",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:LondonBoroughCouncil"
+      ],
+      "schema:name": "Westminster",
+      "schema:url": {
+        "@id": "https://www.westminster.gov.uk/"
+      },
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:westminster-implementation"
+      }
+    },
+    {
+      "@id": "assertion:westminster-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "borough:westminster"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "adopted",
+      "nsd:confidence": "high",
+      "nsd:evidenceType": "official_decision_and_operational_page",
+      "schema:description": "Full Council approved constitutional changes for the NSD; Westminster's planning page reflects the live delegation rules.",
+      "prov:wasDerivedFrom": [
+        {
+          "@id": "evidence:westminster-primary"
+        },
+        {
+          "@id": "evidence:westminster-secondary"
+        }
+      ],
+      "dct:date": {
+        "@value": "2026-09-16",
+        "@type": "xsd:date"
+      },
+      "prov:generatedAtTime": {
+        "@value": "2026-11-02T23:59:59Z",
+        "@type": "xsd:dateTime"
+      },
+      "nsd:adopted": true
+    },
+    {
+      "@id": "authority:city-of-london-corporation",
+      "@type": [
+        "schema:GovernmentOrganization",
+        "nsd:SupplementaryAuthority"
+      ],
+      "schema:name": "City of London Corporation",
+      "schema:url": {
+        "@id": "https://www.cityoflondon.gov.uk/"
+      },
+      "nsd:excludedFromBoroughDenominator": true,
+      "nsd:hasImplementationAssertion": {
+        "@id": "assertion:city-of-london-implementation"
+      }
+    },
+    {
+      "@id": "assertion:city-of-london-implementation",
+      "@type": "nsd:ImplementationAssertion",
+      "nsd:authority": {
+        "@id": "authority:city-of-london-corporation"
+      },
+      "nsd:implementsScheme": {
+        "@id": "nsd:NationalSchemeOfDelegation2026"
+      },
+      "nsd:status": "not_assessed_as_borough_supplementary_only",
+      "nsd:confidence": "low",
+      "schema:description": "The City is not a London borough. Consultation-stage material was located, but no 2026 implementation decision was confirmed in this borough-focused review.",
+      "prov:wasDerivedFrom": {
+        "@id": "evidence:city-of-london-consultation"
+      }
+    },
+    {
+      "@id": "evidence:city-of-london-consultation",
+      "@type": "schema:DigitalDocument",
+      "schema:url": {
+        "@id": "https://democracy.cityoflondon.gov.uk/documents/s213937/Committee%20report%20-%20Modernising%20Planning%20Committees.pdf"
+      },
+      "schema:dateAccessed": {
+        "@value": "2026-11-02",
+        "@type": "xsd:date"
+      }
+    }
+  ]
+}
