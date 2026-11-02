@@ -6,6 +6,7 @@
     { key: 'pending_formal_adoption', label: 'Formal adoption pending', colour: '#cf5b43' },
     { key: 'scheduled_outcome_unconfirmed', label: 'Outcome not yet confirmed', colour: '#75559a' },
     { key: 'no_evidence_found', label: 'No published evidence found', colour: '#8a9599' },
+    { key: 'not_applicable', label: 'National scheme does not apply', colour: '#3f6e8a' },
     { key: 'no_data', label: 'Not yet researched', colour: null }
   ];
   const PAGE = 40;

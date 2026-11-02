@@ -10,7 +10,7 @@ Published path: `https://mhanmore.github.io/w/england-planning-delegation/`
 - `data/authorities.json` — the same table for the browser; the map, legend counts, progress count and table are all built from it.
 - `data/lpa.geojson` — simplified LPA polygons keyed by `code`.
 
-Statuses: `adopted`, `implementation_confirmed_formal_resolution_not_located`, `pending_formal_adoption`, `scheduled_outcome_unconfirmed`, `no_evidence_found`, `no_data`. `no_evidence_found` means a search found nothing; it is not a finding of non-adoption. `checked_by` records whether a row came from an AI worker and whether its positive finding was re-checked.
+Statuses: `adopted`, `implementation_confirmed_formal_resolution_not_located`, `pending_formal_adoption`, `scheduled_outcome_unconfirmed`, `no_evidence_found`, `not_applicable`, `no_data`. `no_evidence_found` means a search found nothing; it is not a finding of non-adoption. `not_applicable` covers authorities expressly exempt from the statutory scheme, including National Park authorities. `checked_by` records whether a row came from an AI worker and whether its positive finding was re-checked.
 
 The summary figures in the page are deliberately "TBC" until the review is complete.
 

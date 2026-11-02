@@ -34,6 +34,7 @@ STATUS_LABELS = {
     "pending_formal_adoption": "Formal adoption pending",
     "scheduled_outcome_unconfirmed": "Outcome not yet confirmed",
     "no_evidence_found": "No published evidence found",
+    "not_applicable": "National scheme does not apply",
 }
 
 DATA = Path(__file__).resolve().parent.parent / "data"
@@ -79,7 +80,7 @@ def main(src: str) -> None:
                          "geometry": mapping(wkt.loads(r["geometry"]))})
 
     with open(research, "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=FIELDS)
+        w = csv.DictWriter(f, fieldnames=FIELDS, lineterminator="\n")
         w.writeheader()
         w.writerows(records)
     (DATA / "authorities.json").write_text(json.dumps(records, indent=1))
