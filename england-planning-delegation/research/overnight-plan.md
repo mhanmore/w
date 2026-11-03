@@ -68,3 +68,29 @@ Nights 2 and 3 need no allowance, so they can overlap and be driven by `launchd`
 - WAF-protected portals may block a script as well as a browser. Your home IP and a plain browser user-agent may fare better than the research environment did; this is the biggest unknown and Night 1 should measure it per family.
 - ModernGov web service and RSS are often disabled; the plan assumes a fallback to calendar pages, which is slower.
 - Some councils will not have held the relevant meeting by now. Stage 2 must distinguish "no meeting yet" from "no evidence".
+
+## Status log
+
+### 3 November 2026: Stage 0 complete (Night 1, partial)
+
+`scripts/fetch_sites.py` and `scripts/fingerprint.py` written and run over all 308 authorities from a UK VPN exit (Manchester, M247 hosting ASN). Outputs: `data/council-sites.csv` (official homepages from GOV.UK Local Links Manager, 294 of 308 found) and `data/portal-fingerprint.csv`.
+
+| Result | Count |
+|---|---|
+| ModernGov, accessible | 205 |
+| WAF-blocked (Cloudflare, Imperva, Azure) | 26 |
+| Host unknown | 72 |
+| Reachable but no ModernGov signature | 5 |
+
+Findings:
+- Much of the earlier blocking was geofencing. Gosport (Azure) and Dorset were 403 from outside the UK and 200 from a UK exit. Data-centre exits still trip some Cloudflare and Imperva rules.
+- `*.moderngov.co.uk` has wildcard DNS through Cloudflare, so a DNS lookup cannot tell a real tenant from a wrong guess. Guessed tenants that return 5xx, 404 or time out are now discarded, not recorded as `broken`.
+- Guessing hosts from the authority name was unreliable. Official homepages from GOV.UK, then a second hop through the homepage's committee/councillor pages, resolved most of the rest (for example South Hams to the shared `democracy.swdevon.gov.uk`).
+- Most of the 72 unknown hosts are not ModernGov (Civica CMIS, council-built sites) or hide the portal behind unlinked paths. Nine are National Parks, development corporations or the Broads Authority, which may be exempt and need a policy decision.
+
+Next:
+1. Stage 1 harvest on the 205 open ModernGov portals (no allowance needed).
+2. Playwright cookie capture for the 26 blocked hosts, using one VPN exit throughout.
+3. A CMIS probe and hand-entered hosts in `data/domains.csv` for the 72 unknowns.
+
+No model allowance has been used on this stage.

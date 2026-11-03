@@ -16,7 +16,7 @@ The summary figures in the page are deliberately "TBC" until the review is compl
 
 The bounded six-authority resolution pilot, including resource allocation, access barriers and reproducible visible token counts, is recorded in [`research/pilot-2026-11-02.md`](research/pilot-2026-11-02.md).
 
-The current worker regime, observed subscription cost and recommended deterministic-first redesign are recorded in [`delegation-notes.md`](delegation-notes.md). Nationwide agent-led expansion is paused pending that redesign.
+The current worker regime, observed subscription cost and recommended deterministic-first redesign are recorded in [`delegation-notes.md`](delegation-notes.md). Nationwide agent-led expansion is paused pending that redesign. The staged overnight plan and its status log are in [`research/overnight-plan.md`](research/overnight-plan.md); `data/portal-fingerprint.csv` holds the Stage 0 portal classification for all 308 authorities.
 
 ## Rebuild
 
